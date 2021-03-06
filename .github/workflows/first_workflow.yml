@@ -6,7 +6,7 @@ on:
 jobs:
   job_one:
     name: Deployment
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
     - name: testing tigu server ssh connection
       uses: appleboy/ssh-action@master
