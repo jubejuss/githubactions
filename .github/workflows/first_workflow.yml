@@ -15,7 +15,7 @@ jobs:
         username: juho.kalberg
         key: ${{ secrets.SSH_GIT_SECRET }}
         port: 22
-        script: |
+        script:
           cd public_html/githubactions
           git pull origin main
           git status
