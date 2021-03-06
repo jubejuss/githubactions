@@ -11,7 +11,7 @@ jobs:
     - name: testing tigu server ssh connection
       uses: appleboy/ssh-action@master
       with:
-        host: https://tigu.hk.tlu.ee:80/
+        host: 213.180.26.246
         username: juho.kalberg
         key: ${{ secrets.SSH_GIT_SECRET }}
         port: 22
