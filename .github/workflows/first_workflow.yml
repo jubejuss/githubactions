@@ -12,8 +12,8 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: https://tigu.hk.tlu.ee/~juho.kalberg/githubactions/
-        username: ${{ secrets.juho.kalberg }}
-        key: ${{ secrets.SSH_GIT_SECRET }}
+        username: juho.kalberg
+        password: y2Gg4TDpxp
         port: 22
         script: |
           cd public_html/githubactions
