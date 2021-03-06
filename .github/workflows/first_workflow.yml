@@ -1,12 +1,12 @@
 name: Deployment Workflow
 on: 
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   job_one:
     name: Deployment
-    rund-on: ubuntu-latest
+    run-on: ubuntu-latest
     steps:
     - name: testing tigu server ssh connection
       uses: appleboy/ssh-action@master
@@ -17,5 +17,5 @@ jobs:
         port: 22
         script: |
           cd public_html/githubactions
-          git pull origin master
+          git pull origin main
           git status
