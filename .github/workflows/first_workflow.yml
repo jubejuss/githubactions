@@ -13,7 +13,7 @@ jobs:
       with:
         host: https://tigu.hk.tlu.ee/
         username: juho.kalberg
-        key: SSH_GIT_SECRET
+        key: ${{ secrets.SSH_KEY }}
         port: 22
         script: |
           cd public_html/githubactions
