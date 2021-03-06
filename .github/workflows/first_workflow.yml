@@ -12,10 +12,10 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: https://tigu.hk.tlu.ee/~juho.kalberg/githubactions/
-        username: juho.kalberg
+        username: ${{ secrets.juho.kalberg }}
         key: ${{ secrets.SSH_GIT_SECRET }}
         port: 22
-        script:
+        script: |
           cd public_html/githubactions
           git pull origin main
           git status
