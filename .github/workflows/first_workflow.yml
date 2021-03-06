@@ -11,9 +11,10 @@ jobs:
     - name: testing tigu server ssh connection
       uses: appleboy/ssh-action@master
       with:
-        host: https://tigu.hk.tlu.ee/
+        host: tigu.hk.tlu.ee/
         username: juho.kalberg
         key: ${{ secrets.SSH_GIT_SECRET }}
+        port: 22
         script: |
           cd public_html/githubactions
           git pull origin main
