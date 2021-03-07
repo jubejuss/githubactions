@@ -1,5 +1,5 @@
 <?php
-	$myname = "Andrus Rinde";
+	$myname = "Juho Kalberg";
 	$currenttime = date("d.m.Y H:i:s");
 	$timehtml = "\n <p>Lehe avamise hetkel oli: " .$currenttime .".</p> \n";
 	$semesterbegin = new DateTime("2021-1-25");
@@ -49,7 +49,7 @@
 	?>
 	</h1>
 	<p>See leht on valminud õppetöö raames!</p>
-	<p>KAsutan siin Appleboy actionit, mis võimaldab oma arvutis oleva repo Githubi pushida ja sealt sele siis automaatselt Tigu serverisse lükata</p>
+	<p>Kasutan siin Appleboy actionit, mis võimaldab oma arvutis oleva repo Githubi pushida ja sealt selle siis automaatselt Tigu serverisse lükata</p>
 	<?php
 		echo $timehtml;
 		echo $semesterdurhtml;
