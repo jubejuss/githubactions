@@ -49,3 +49,7 @@ Kokkuvõttes panime me serveri ja Githubi SSH abil suhtlema ja lisasime serveris
 
 Lisaks Bootstrapi install.
 Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs/bootstrap-npm-starter)
+
+1. Kloonin repo siia root folderisse, mistap tekib bootsrap starter folder
+2. Kustutan sealt .git'i rm -rf /bootstrap-npm-starter
+3. Kopin bootstrapi failid ümber
