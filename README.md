@@ -52,4 +52,5 @@ Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs
 
 1. Kloonin repo siia root folderisse, mistap tekib bootsrap starter folder
 2. Kustutan sealt .git'i rm -rf /bootstrap-npm-starter
-3. Kopin bootstrapi failid ümber
+3. Kopin bootstrapi failid ümber root folderisse. Seni on seal .ddev, .github, images, ja falid Readme, index.pho ja serverinfo.php
+4.
