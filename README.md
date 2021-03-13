@@ -57,15 +57,13 @@ Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs
    Bootstrapiga kaasatulevat serverit pole eriti mõtet jooksutada, kuna sel pole PHP-d sees, seega kooliülesande PHP jälgimiseks tõmba käima docker, ehk kaasasolev DDEV
 5. CSS-i kompileerimiseks `npm run css-compile`
    muud käsud:  
-   | päis | päis | päis |
-   |------|------|------|
-
-   Script Description
-   server Starts a local server (http://localhost:3000) for development
-   watch Automatically recompiles CSS as it watches the scss directory for changes
-   css Runs css-compile and css-prefix
-   css-compile Compiles source Sass into CSS
-   css-lint Runs Stylelint against source Sass for code quality
-   css-prefix Runs Autoprefixer on the compiled CSS
-   css-purge Runs PurgeCSS to remove CSS that is unused by index.html
-   test Runs css-lint and css, in sequential order
+   | Käsk | Kirjeldus |
+   |------|------|
+   | server | Starts a local server (http://localhost:3000) for development |
+   | watch | Automatically recompiles CSS as it watches the scss directory for changes |
+   | css | Runs css-compile and css-prefix |
+   | css-compile | Compiles source Sass into CSS |
+   | css-lint | Runs Stylelint against source Sass for code quality |
+   | css-prefix | Runs Autoprefixer on the compiled CSS |
+   | css-purge | Runs PurgeCSS to remove CSS that is unused by index.html |
+   |test Runs | css-lint and css, in sequential order |
