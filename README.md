@@ -53,4 +53,19 @@ Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs
 1. Kloonin repo siia root folderisse, mistap tekib bootsrap starter folder
 2. Kustutan sealt .git'i rm -rf /bootstrap-npm-starter
 3. Kopin bootstrapi failid ümber root folderisse. Seni on seal .ddev, .github, images, ja falid Readme, index.pho ja serverinfo.php
-4.
+4. nüüd install npm i ehk käsklused [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs/bootstrap-npm-starter)  
+   Bootstrapiga kaasatulevat serverit pole eriti mõtet jooksutada, kuna sel pole PHP-d sees, seega kooliülesande PHP jälgimiseks tõmba käima docker, ehk kaasasolev DDEV
+5. CSS-i kompileerimiseks `npm run css-compile`
+   muud käsud:  
+   | päis | päis | päis |
+   |------|------|------|
+
+   Script Description
+   server Starts a local server (http://localhost:3000) for development
+   watch Automatically recompiles CSS as it watches the scss directory for changes
+   css Runs css-compile and css-prefix
+   css-compile Compiles source Sass into CSS
+   css-lint Runs Stylelint against source Sass for code quality
+   css-prefix Runs Autoprefixer on the compiled CSS
+   css-purge Runs PurgeCSS to remove CSS that is unused by index.html
+   test Runs css-lint and css, in sequential order
