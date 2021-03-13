@@ -50,6 +50,7 @@
 	</h1>
 	<p>See leht on valminud õppetöö raames!</p>
 	<p>Kasutan siin Appleboy actionit, mis võimaldab oma arvutis oleva repo Githubi pushida ja sealt selle siis automaatselt Tigu serverisse lükata</p>
+	<p>Test</p>
 	<?php
 		echo $timehtml;
 		echo $semesterdurhtml;
