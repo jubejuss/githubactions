@@ -58,6 +58,7 @@ Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs
 5. CSS-i kompileerimiseks `npm run css-compile`  
    muud käsud:  
    | Käsk | Kirjeldus |
+   |---|---|
    | server | Starts a local server (http://localhost:3000) for development |
    | watch | Automatically recompiles CSS as it watches the scss directory for changes |
    | css | Runs css-compile and css-prefix |
