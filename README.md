@@ -43,3 +43,4 @@ jobs:
 ```
 
 Tasub tähelepanu pöörata, et see host võib tavajuhul olla ka veebiaadress.
+Siin näites toodud `key: ${{ secrets.SSH_GIT_SECRET }}`ongy see nimi, mille palusin ülal meelde jätta.
