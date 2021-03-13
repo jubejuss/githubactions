@@ -66,4 +66,6 @@ Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs
    | css-lint | Runs Stylelint against source Sass for code quality |
    | css-prefix | Runs Autoprefixer on the compiled CSS |
    | css-purge | Runs PurgeCSS to remove CSS that is unused by index.html |
-   |test Runs | css-lint and css, in sequential order |
+   | test Runs | css-lint and css, in sequential order |
+
+`npm run watch` kui tahad, et broswseris muutisi näeks

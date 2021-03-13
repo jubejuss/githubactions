@@ -40,6 +40,7 @@
 <html lang="et">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Veebirakendused ja nende loomine 2021</title>
 	<link rel="stylesheet" href="assets/css/starter.css">
 </head>
@@ -57,5 +58,7 @@
 		echo $semesterprogress;
 	?>
 	<img class="img-fluid" src="<?php echo $picsdir .$randomphoto; ?>" alt="raudteejaam">
+	<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script type="module" src="assets/js/starter.js"></script>  
 </body>
 </html>
