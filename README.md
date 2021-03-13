@@ -55,7 +55,7 @@ Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs
 3. Kopin bootstrapi failid ümber root folderisse. Seni on seal .ddev, .github, images, ja falid Readme, index.pho ja serverinfo.php
 4. nüüd install npm i ehk käsklused [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs/bootstrap-npm-starter)  
    Bootstrapiga kaasatulevat serverit pole eriti mõtet jooksutada, kuna sel pole PHP-d sees, seega kooliülesande PHP jälgimiseks tõmba käima docker, ehk kaasasolev DDEV
-5. CSS-i kompileerimiseks `npm run css-compile`
+5. CSS-i kompileerimiseks `npm run css-compile`  
    muud käsud:  
    | Käsk | Kirjeldus |
    | server | Starts a local server (http://localhost:3000) for development |
