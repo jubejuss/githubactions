@@ -18,27 +18,28 @@ Siinne juhis:
 7. Nüüd võime serverisse teha .github folderi. Mina tegin konkreetse projekti rootfolderisse. Sinna omakorda folder workflows (.gtihub/workflows) ja sinna touch .gtihub/workflows/first_workflow.yml  
    Seejärel ava see first_workflow.yml ja kirjuta sinna sisse:
 
-```markdown
+```yml
 name: Deployment Workflow
 on:
-push:
-branches: [ main ]
+  push:
+    branches: [main]
 
 jobs:
-job_one:
-name: Deployment
-runs-on: ubuntu-latest
-steps: - name: testing tigu server ssh connection
-uses: appleboy/ssh-action@master
-with:
-host: 213.180.26.246
-username: juho.kalberg
-key: ${{ secrets.SSH_GIT_SECRET }}
-port: 22
-script: |
-cd public_html/githubactions
-git pull origin main
-git status
+  job_one:
+    name: Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing tigu server ssh connection
+        uses: appleboy/ssh-action@master
+        with:
+          host: 213.180.26.246
+          username: juho.kalberg
+          key: ${{ secrets.SSH_GIT_SECRET }}
+          port: 22
+          script: |
+            cd public_html/githubactions
+            git pull origin main
+            git status
 ```
 
 Tasub tähelepanu pöörata, et see host võib tavajuhul olla ka veebiaadress.
