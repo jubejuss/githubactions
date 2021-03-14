@@ -84,7 +84,12 @@
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto2; ?>" alt="suvapilt">
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto3; ?>" alt="suvapilt">
 		</div>
-	<div>
+</div>
+
+	<?php
+		$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+		echo "<a href='$url'>Tagasi</a>"; 
+	?>
 	<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script type="module" src="assets/js/starter.js"></script>  
 </body>

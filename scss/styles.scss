@@ -2,6 +2,8 @@
 @import "bootstrap/scss/variables"; // Required
 @import "bootstrap/scss/mixins"; // Required
 
-body {
+body,
+a,
+a:visited {
   color: $light;
 }
