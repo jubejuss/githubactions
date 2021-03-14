@@ -33,7 +33,9 @@
 
 
 	$photocount = count($picfiles);
+
 	$photonum = mt_rand(0, $photocount-1);
+	
 	$randomphoto = $picfiles[$photonum];
 ?>
 <!DOCTYPE html>
@@ -44,7 +46,7 @@
 	<title>Veebirakendused ja nende loomine 2021</title>
 	<link rel="stylesheet" href="assets/css/starter.css">
 </head>
-<body class="container">
+<body class="container ">
 	<h1>
 	<?php
 		echo $myname;
