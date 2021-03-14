@@ -21,9 +21,9 @@
 	// echo $allfiles[5];
 	// var_dump($allfiles);
 	$allowedphototypes = ["image/jpeg", "image/png"];
-	$picfiles = [];
+	$picfiles = []; //tekitan listi
 
-	foreach($allfiles as $file) { // for tsükkel et leida vaid pildifailid allfilest ja siis tähista iga võetud fail $file. Tspkkel läbitakse niipalju kordu, kui me $allfilesis leidsime
+	foreach($allfiles as $file) { // for tsükkel et leida vaid pildifailid allfilest ja siis tähista iga võetud fail $file. Tsükkel läbitakse niipalju kordi, kui me $allfilesis leidsime
 		$fileinfo = getimagesize($picsdir .$file); // küsime faili suurust, sest selle abil saame me veel hunniku asju teada just sellelt pildilt mh failitüübi, mida meil vaja ongi
 		// var_dump($fileinfo); // edastab kogu info, et saame vaadata, mida meil kätte saada
 		if(isset($fileinfo["mime"])) { // kui nüüd fileinfos on "mime" siis edasi
@@ -35,21 +35,21 @@
 
 
 	$photocount = count($picfiles); // loeme üles piltide arvu
-	$photonums = []; // tekitan listi/massiivi, kuhu kogutakse 3 random pilti
+	$RandImgArray = []; // tekitan listi/massiivi, kuhu kogun alljärgnevalt 3 random pilti
 
 	// kasutame do while funktsiooni
 	// loome uue listi, kuhu lükkame meile sobivad pildid, st siis unikaalsed pildid. while counter leondab, palju seal listis pilte on
 	do {
-		$photonum = mt_rand(0, $photocount-1); //leiame esimese suvapildi mt_rand funktsiooniga
-		if(!(in_array($photonum, $photonums))) { //Kui pilti pole photonums nimelises arrays, siis:
-			array_push($photonums, $photonum); // lükkame pildi massiivi
+		$RandImg = mt_rand(0, $photocount-1); //leiame esimese suvapildi mt_rand funktsiooniga. Sulgudes on vahemik, millest milleni otsime.
+		if(!(in_array($RandImg, $RandImgArray))) { //Kui pilti pole RandImgArray nimelises massiivis/listis, siis:
+			array_push($RandImgArray, $RandImg); // lükkame pildi massiivi
 		}
-	} while (count($photonums) < 3);  //käitame tsüklit 3 korda.
+	} while (count($RandImgArray) < 3);  //käitame tsüklit 3 korda, ehk jooksutame, kuni RandImgArrayis on 3 pilti.
 
-	// nüüd defineerime, mis kohal photonum listis mingi pilt täpselt on
-	$randomphoto = $picfiles[$photonums[0]]; // seega randomfoto on pildifailide folderist pilt nr $photonum
-	$randomphoto2 = $picfiles[$photonums[1]];
-	$randomphoto3 = $picfiles[$photonums[2]];
+	// nüüd defineerime, mis kohal RandImg listis mingi pilt täpselt on
+	$randomphoto = $picfiles[$RandImgArray[0]]; // seega randomfoto on pildifailide folderist pilt nr $RandImg
+	$randomphoto2 = $picfiles[$RandImgArray[1]];
+	$randomphoto3 = $picfiles[$RandImgArray[2]];
 
 ?>
 <!DOCTYPE html>
