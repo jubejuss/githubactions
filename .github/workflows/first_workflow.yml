@@ -16,6 +16,6 @@ jobs:
         key: ${{ secrets.SSH_GIT_SECRET }}
         port: 22
         script: |
-          cd public_html/githubactions
+          cd public_html/veebirakendused
           git pull origin main
           git status
