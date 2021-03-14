@@ -73,8 +73,6 @@
 	?>
 	</h2>
 	<p>See leht on valminud õppetöö raames!</p>
-
-	<p>test</p>
 	<?php
 		echo $timehtml;
 		echo $semesterdurhtml;
