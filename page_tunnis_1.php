@@ -44,7 +44,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Veebirakendused ja nende loomine 2021</title>
-	<link rel="stylesheet" href="assets/css/starter.css">
 </head>
 <body class="container ">
 	<h1>
@@ -53,7 +52,6 @@
 	?>
 	</h1>
 	<p>See leht on valminud õppetöö raames!</p>
-	<p>Kasutan siin Appleboy actionit, mis võimaldab oma arvutis oleva repo Githubi pushida ja sealt selle siis automaatselt Tigu serverisse lükata</p>
 	<?php
 		echo $timehtml;
 		echo $semesterdurhtml;
