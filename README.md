@@ -43,7 +43,7 @@ jobs:
 ```
 
 Tasub tähelepanu pöörata, et see host võib tavajuhul olla ka veebiaadress.
-Siin näites toodud `key: ${{ secrets.SSH_GIT_SECRET }}`ongy see nimi, mille palusin ülal meelde jätta.
+Siin näites toodud `key: ${{ secrets.SSH_GIT_SECRET }}`ongi see nimi, mille palusin ülal meelde jätta.
 
 Kokkuvõttes panime me serveri ja Githubi SSH abil suhtlema ja lisasime serverisse vastava skripti.
 

@@ -78,6 +78,16 @@
 		echo $semesterdurhtml;
 		echo $semesterprogress;
 	?>
+
+	<p>Täna on
+
+	<?php
+	setlocale(LC_TIME, 'et_EE.utf8');
+	$date =  strftime('%A.');
+	echo $date;
+	?>
+	</p>
+
 	<div class="row">
 		<div class="d-md-flex">
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto; ?>" alt="suvapilt"> <!-- echo järel ütlen, mis kataloogis, mis pilt asub -->
