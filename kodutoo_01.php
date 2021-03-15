@@ -80,7 +80,6 @@
 	?>
 
 	<p>Täna on
-
 	<?php
 	setlocale(LC_TIME, 'et_EE.utf8');
 	$date =  strftime('%A.');

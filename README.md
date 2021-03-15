@@ -68,4 +68,4 @@ Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs
    | css-purge | Runs PurgeCSS to remove CSS that is unused by index.html |
    | test Runs | css-lint and css, in sequential order |
 
-`npm run watch` kui tahad, et broswseris muutisi näeks
+`npm run watch` kui tahad, et broswseris muutusi näeks
