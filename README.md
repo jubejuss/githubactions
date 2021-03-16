@@ -1,13 +1,14 @@
-# Github actions
+# Koolitööde repo
 
-See repo on tehtud moel, et oma arvutist pushitakse githubi ja sealt sobilikku serverisse.  
-Kasutatud on Apleboy skripti.  
-Töö peamiselt õppeeesmärgil.
+Siinne repo, on nö töökorraldus, kus arendus toimub oma arvutis, muudatused pushitakse Githubi ja Githubis on seadistatud action, mis muudatuste tekkel, lükkab need omakorda nö liveserverisse, ehk valmis kodulehele.
+
+Kasutatud on Apleboy SSH skripti.  
+Töö on tehtud õppeeesmärgil.
 
 Siin kasutatud Githubi actioni setupi täpsem juhis:  
 [https://www.youtube.com/watch?v=gW1TDirJ5E4](https://www.youtube.com/watch?v=gW1TDirJ5E4)
 
-Siinne juhis:
+## Juhend
 
 1. Vaja on leida Githubist Appleboy SSH Action – SSH Remote Commands [https://github.com/marketplace/actions/ssh-remote-commands](https://github.com/marketplace/actions/ssh-remote-commands)
 2. Tee remote serveri ja githubi jaoks ssh key'd
@@ -47,6 +48,10 @@ Siin näites toodud `key: ${{ secrets.SSH_GIT_SECRET }}`ongi see nimi, mille pal
 
 Kokkuvõttes panime me serveri ja Githubi SSH abil suhtlema ja lisasime serverisse vastava skripti.
 
+## Bootstrap
+
+Et asi veidi kenam välja paistaks ja ühtlasi Bootstrapi paigaldamise harjutamiseks, on samasse reposse ja siit käitatavale lehele paigaldatud ka Bootstrapi css raamistik.
+
 Lisaks Bootstrapi install.
 Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs/bootstrap-npm-starter)
 
@@ -69,3 +74,8 @@ Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs
    | test Runs | css-lint and css, in sequential order |
 
 `npm run watch` kui tahad, et broswseris muutusi näeks
+
+## Selle repo kasutamine
+
+Git clone  
+npm install
