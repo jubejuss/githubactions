@@ -8,8 +8,6 @@
 	$semesterduration = $semesterbegin->diff($semesterend); // Diff funktsioon võrdleb alguse ja lõpuaega
 	$semesterdurationdays = $semesterduration->format("%r%a"); // muudab ajaformaadi päevadeks
 
-	
-
 	$semesterdurhtml = "\n <p>2021 kevadsemestri kestus on " .$semesterdurationdays ." päeva.</p> \n";
 	$today = date_create();                                                     // määrab mutuja tüübi
 	$today = new DateTime("now"); // määran tänase kuupäeva
@@ -17,17 +15,17 @@
 	$fromsemesterbegindays = $fromsemesterbegin->format("%r%a");
 
 	$semesterprogress = "\n"  .'<p>Semester edeneb: <meter min="0" max="' .$semesterdurationdays .'" value="' .$fromsemesterbegindays .'"></meter>.</p>' ."\n";
+
 	setlocale(LC_TIME, 'et_EE.utf8'); // Sellega määran järgmise rea keele
 	$todayname ="<p> Täna on ". strftime('%A. Lihtsal, kuid võimalik, et mõningatel juhtudel mittetoimival moel – kasutatakse `setlocale` funktsiooni.'); // Selle defineerin, et $todayname on päeva nimi. A kirjutab päeva välja
 
+
 	// päeva nimetuse leidmine keeruliselt
-	$weekday_nr=date('w');                 // date(w) on PHP funktsioon on nädalapäevade numbriline definitsioon
-    $day_names=['pühapäev','esmaspäev','teisipäev','kolmapäev','neljapäev','reede','laupäev']; // moodustame listi/massiivi nädalapevadega
+	$weekday_nr=date('w'); // date(w) on PHP funktsioon on nädalapäevade numbriline definitsioon
+    $day_names=['pühapäev','esmaspäev','teisipäev','kolmapäev','neljapäev','reede','laupäev']; // moodustame listi/massiivi nädalapäevadega
     $todaysweekdayhtml="<p> Täna on ". $day_names[$weekday_nr].". Keerulisel, kuid lollikindlal moel – andmed loetakse massiivist.</p>"; // nüüd ütleme, et võtku listist tänane päev ja kuvagu seda.
 
-
-
-	// aga kui semester pole veel alanud, kuidas siis see näidatakse?
+	// aga kui semester pole veel alanud või on läbi, kuidas siis see näidatakse?
 
 	// vaata siit https://www.php.net/manual/en/datetime.setdate.php
 	// objektorienteeritud style:
@@ -35,10 +33,10 @@
     $today_ver2->setDate(2020, 5, 10); // siin muudan kuupäeva vastavalt soovile, et näha mis juhtub, kui oleks vastav kuupäev
 
 	// protserural style:
-	//$today_ver2 = date_create();        // vaata siit https://www.php.net/manual/en/datetime.setdate.php
+	//$today_ver2 = date_create(); // vaata siit https://www.php.net/manual/en/datetime.setdate.php
     // date_date_set($today_ver2,2023, 4, 10); // siin muudan kuupäeva vastavalt soovile, et näha mis juhtub, kui oleks vastav kuupäev
 
-	$iftoday = "Kui täna oleks ".$today_ver2->format('d.m.Y');
+	$iftoday = "Kui täna oleks ".$today_ver2->format('d.m.Y'.",");
 
 	// kontrollime, kas semester kulgeb, on läbi või pole veel alanud, sõltuvalt sellest, mis kuupäeva ülal sisestasime.
     $fromsemesterbegin = $semesterbegin->diff($today_ver2);    // diff annab ajavahemiku semestri algusest $today-ni
@@ -55,17 +53,6 @@
             else {
             $semesterprogress_ver2 = " oleks semester lõppenud.";}           // ajavahemik oli semestrist pikem ja seega semester on lõppenud
         }
-
-	
-
-
-
-
-
-
-
-
-
 
 
 	// loeme piltide kataloogi sisu
@@ -104,6 +91,9 @@
 	$randomphoto2 = $picfiles[$RandImgArray[1]];
 	$randomphoto3 = $picfiles[$RandImgArray[2]];
 
+	// ver 2
+	$randomphotofunc = array_rand($picfiles,3); 
+
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -139,10 +129,17 @@
 	?>
 
 	<div class="row">
+		<h2 class="col-12">Pildid keerulisel moel</h2>
 		<div class="d-md-flex">
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto; ?>" alt="suvapilt"> <!-- echo järel ütlen, mis kataloogis, mis pilt asub -->
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto2; ?>" alt="suvapilt">
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto3; ?>" alt="suvapilt">
+		</div>
+		<h2 class="col-12">Pildid funktsiooniga</h2>
+		<div class="d-md-flex">
+			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[0]]; ?>" alt="suvapilt">
+			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[1]]; ?>" alt="suvapilt">
+			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[2]]; ?>" alt="suvapilt">
 		</div>
 </div>
 
