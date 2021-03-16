@@ -5,15 +5,68 @@
 	$timehtml = "\n <p>Lehe avamise hetkel oli: " .$currenttime .".</p> \n";
 	$semesterbegin = new DateTime("2021-1-25");
 	$semesterend = new DateTime("2021-6-30");
-	$semesterduration = $semesterbegin->diff($semesterend);
-	$semesterdurationdays = $semesterduration->format("%r%a");
+	$semesterduration = $semesterbegin->diff($semesterend); // Diff funktsioon võrdleb alguse ja lõpuaega
+	$semesterdurationdays = $semesterduration->format("%r%a"); // muudab ajaformaadi päevadeks
+
+	
+
 	$semesterdurhtml = "\n <p>2021 kevadsemestri kestus on " .$semesterdurationdays ." päeva.</p> \n";
-	$today = new DateTime("now");
+	$today = date_create();                                                     // määrab mutuja tüübi
+	$today = new DateTime("now"); // määran tänase kuupäeva
 	$fromsemesterbegin = $semesterbegin->diff($today);
 	$fromsemesterbegindays = $fromsemesterbegin->format("%r%a");
+
 	$semesterprogress = "\n"  .'<p>Semester edeneb: <meter min="0" max="' .$semesterdurationdays .'" value="' .$fromsemesterbegindays .'"></meter>.</p>' ."\n";
-	//<meter min="0" max="156" value="35"></meter>
-	//https://tigu.hk.tlu.ee/~andrus.rinde/vr2021/pics/
+	setlocale(LC_TIME, 'et_EE.utf8'); // Sellega määran järgmise rea keele
+	$todayname ="<p> Täna on ". strftime('%A. Lihtsal, kuid võimalik, et mõningatel juhtudel mittetoimival moel – kasutatakse `setlocale` funktsiooni.'); // Selle defineerin, et $todayname on päeva nimi. A kirjutab päeva välja
+
+	// päeva nimetuse leidmine keeruliselt
+	$weekday_nr=date('w');                 // date(w) on PHP funktsioon on nädalapäevade numbriline definitsioon
+    $day_names=['pühapäev','esmaspäev','teisipäev','kolmapäev','neljapäev','reede','laupäev']; // moodustame listi/massiivi nädalapevadega
+    $todaysweekdayhtml="<p> Täna on ". $day_names[$weekday_nr].". Keerulisel, kuid lollikindlal moel – andmed loetakse massiivist.</p>"; // nüüd ütleme, et võtku listist tänane päev ja kuvagu seda.
+
+
+
+	// aga kui semester pole veel alanud, kuidas siis see näidatakse?
+
+	// vaata siit https://www.php.net/manual/en/datetime.setdate.php
+	// objektorienteeritud style:
+	$today_ver2 = new DateTime();        
+    $today_ver2->setDate(2020, 5, 10); // siin muudan kuupäeva vastavalt soovile, et näha mis juhtub, kui oleks vastav kuupäev
+
+	// protserural style:
+	//$today_ver2 = date_create();        // vaata siit https://www.php.net/manual/en/datetime.setdate.php
+    // date_date_set($today_ver2,2023, 4, 10); // siin muudan kuupäeva vastavalt soovile, et näha mis juhtub, kui oleks vastav kuupäev
+
+	$iftoday = "Kui täna oleks ".$today_ver2->format('d.m.Y');
+
+	// kontrollime, kas semester kulgeb, on läbi või pole veel alanud, sõltuvalt sellest, mis kuupäeva ülal sisestasime.
+    $fromsemesterbegin = $semesterbegin->diff($today_ver2);    // diff annab ajavahemiku semestri algusest $today-ni
+    $fromsemesterbegindays = $fromsemesterbegin->format("%r%a");    // muuudame päevadeks
+    
+    // võrdleme kas ajavahemik on vahemikus 0-semestri kestvus või on pikem või hoopis negatiivne
+    if($fromsemesterbegindays <= $semesterdurationdays && $fromsemesterbegindays >=0) {
+        $semesterprogress_ver2 = 'leks semester omadega sealmaal: <meter min="0" max="' .$semesterdurationdays 
+        .'" value="' .$fromsemesterbegindays .'"></meter>';    // ajavahemik on lubatud piires, seega semester kestab ja vormindame HTML muutuja mis näitab semetri kulgu
+        }    
+        else { 
+            if ($fromsemesterbegindays <0) 
+            {$semesterprogress_ver2 = " poleks semester veel alanud."; }    // ajavahemik on negatiivne, seega pole semester veel alanud
+            else {
+            $semesterprogress_ver2 = " oleks semester lõppenud.";}           // ajavahemik oli semestrist pikem ja seega semester on lõppenud
+        }
+
+	
+
+
+
+
+
+
+
+
+
+
 
 	// loeme piltide kataloogi sisu
 	$picsdir = "images/";
@@ -77,15 +130,13 @@
 		echo $timehtml;
 		echo $semesterdurhtml;
 		echo $semesterprogress;
+		echo "<p>";
+		echo $iftoday;
+		echo $semesterprogress_ver2;
+		echo "</p>";
+		echo $todaysweekdayhtml;
+		echo $todayname;
 	?>
-
-	<p>Täna on
-	<?php
-	setlocale(LC_TIME, 'et_EE.utf8');
-	$date =  strftime('%A.');
-	echo $date;
-	?>
-	</p>
 
 	<div class="row">
 		<div class="d-md-flex">
@@ -95,10 +146,9 @@
 		</div>
 </div>
 
-	<?php
-		$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-		echo "<a href='$url'>Tagasi</a>"; 
-	?>
+<div>
+	<a href="./">Aine kodulehele</a>
+</div>
 	<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script type="module" src="assets/js/starter.js"></script>  
 </body>
