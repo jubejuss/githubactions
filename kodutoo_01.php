@@ -140,7 +140,8 @@
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[1]]; ?>" alt="suvapilt">
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[2]]; ?>" alt="suvapilt">
 		</div>
-</div>
+		<a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01.php">Vaata koodi Githubist</a>
+	</div>
 
 <div>
 	<a href="./">Aine kodulehele</a>
