@@ -5,24 +5,24 @@
 	$timehtml = "\n <p>Lehe avamise hetkel oli: " .$currenttime .".</p> \n";
 	$semesterbegin = new DateTime("2021-1-25");
 	$semesterend = new DateTime("2021-6-30");
-	$semesterduration = $semesterbegin->diff($semesterend);					// Diff funktsioon võrdleb alguse ja lõpuaega
-	$semesterdurationdays = $semesterduration->format("%r%a");				// muudab ajaformaadi päevadeks
+	$semesterduration = $semesterbegin->diff($semesterend);                 // Diff funktsioon võrdleb alguse ja lõpuaega
+	$semesterdurationdays = $semesterduration->format("%r%a");              // muudab ajaformaadi päevadeks
 
 	$semesterdurhtml = "\n <p>2021 kevadsemestri kestus on " .$semesterdurationdays ." päeva.</p> \n";
-	$today = date_create();													// määrab mutuja tüübi
-	$today = new DateTime("now");											// määran tänase kuupäeva
+	$today = date_create();                                                 // määrab mutuja tüübi
+	$today = new DateTime("now");                                           // määran tänase kuupäeva
 	$fromsemesterbegin = $semesterbegin->diff($today);
 	$fromsemesterbegindays = $fromsemesterbegin->format("%r%a");
 
 	$semesterprogress = "\n"  .'<p>Semester edeneb: <meter min="0" max="' .$semesterdurationdays .'" value="' .$fromsemesterbegindays .'"></meter>.</p>' ."\n";
 
-	setlocale(LC_TIME, 'et_EE.utf8');										// Sellega määran järgmise rea keele
+	setlocale(LC_TIME, 'et_EE.utf8');                                       // Sellega määran järgmise rea keele
 	$todayname ="<p> Täna on ". strftime('%A. Lihtsal, kuid võimalik, et mõningatel juhtudel mittetoimival moel – kasutatakse `setlocale` funktsiooni.'); 
-																			// Selle defineerin, et $todayname on päeva nimi. A kirjutab päeva välja
+                                                                            // Selle defineerin, et $todayname on päeva nimi. A kirjutab päeva välja
 
 
-																			// päeva nimetuse leidmine keeruliselt
-	$weekday_nr=date('w');													// date(w) on PHP funktsioon on nädalapäevade numbriline definitsioon
+	                                                                        // päeva nimetuse leidmine keeruliselt
+	$weekday_nr=date('w');                                                  // date(w) on PHP funktsioon on nädalapäevade numbriline definitsioon
 
 																			// moodustame listi/massiivi nädalapäevadega
     $day_names=['pühapäev','esmaspäev','teisipäev','kolmapäev','neljapäev','reede','laupäev'];
