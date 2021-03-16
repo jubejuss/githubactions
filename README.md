@@ -4,7 +4,7 @@ See repo on tehtud moel, et oma arvutist pushitakse githubi ja sealt sobilikku s
 Kasutatud on Apleboy skripti.  
 Töö peamiselt õppeeesmärgil.
 
-Setupi täpsem juhis siin:  
+Siin kasutatud Githubi actioni setupi täpsem juhis:  
 [https://www.youtube.com/watch?v=gW1TDirJ5E4](https://www.youtube.com/watch?v=gW1TDirJ5E4)
 
 Siinne juhis:
