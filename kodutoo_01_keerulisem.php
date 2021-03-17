@@ -61,9 +61,9 @@
 	                                                                        // kasutame do while funktsiooni
 	                                                                        // loome uue listi, kuhu lükkame meile sobivad pildid, st siis unikaalsed pildid. while counter leondab, palju seal listis pilte on
 	do {
-		$RandImg = mt_rand(0, $photocount-1);                               // leiame esimese suvapildi mt_rand funktsiooniga. Sulgudes on vahemik, millest milleni otsime.
-		if(!(in_array($RandImg, $RandImgArray))) {                          // Kui pilti pole RandImgArray nimelises massiivis/listis, siis:
-			array_push($RandImgArray, $RandImg);                            // lükkame pildi massiivi
+	    $RandImg = mt_rand(0, $photocount-1);                               // leiame esimese suvapildi mt_rand funktsiooniga. Sulgudes on vahemik, millest milleni otsime.
+	    if(!(in_array($RandImg, $RandImgArray))) {                          // Kui pilti pole RandImgArray nimelises massiivis/listis, siis:
+	        array_push($RandImgArray, $RandImg);                            // lükkame pildi massiivi
 		}
 	} while (count($RandImgArray) < 3);                                     //käitame tsüklit 3 korda, ehk jooksutame, kuni RandImgArrayis on 3 pilti.
 
@@ -109,7 +109,7 @@
 	<div class="row">
 		<h2 class="col-12">Pildid funktsiooniga</h2>
 		<div class="d-md-flex">
-			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto; ?>" alt="suvapilt"> <!-- echo järel ütlen, mis kataloogis, mis pilt asub -->
+			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto; ?>" alt="suvapilt">
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto2; ?>" alt="suvapilt">
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto3; ?>" alt="suvapilt">
 		</div>
