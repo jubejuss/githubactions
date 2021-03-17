@@ -23,23 +23,23 @@
 	//--------------------------------------KODUTÖÖ-ÜL-LÕPP----------------------------------------------//
 	//--------------------------------------KODUTÖÖ-ÜL-2-------------------------------------------------//
 	$today_manually = new DateTime();                                       // seadistame kuupäeva näitamise
-    $today_manually->setDate(2020, 5, 10);                                  // muudan kuupäeva vastavalt soovile, et näha mis juhtub, kui oleks vastav kuupäev
+	$today_manually->setDate(2020, 5, 10);                                  // muudan kuupäeva vastavalt soovile, et näha mis juhtub, kui oleks vastav kuupäev
 	$iftoday = "Kui täna oleks ".$today_manually->format('d.m.Y'.",");
 	                                                                        // kontrollime, kas semester kulgeb, on läbi või pole veel alanud, 
-																			// sõltuvalt sellest, mis kuupäeva ülal sisestasime.
-    $fromsemesterbegin = $semesterbegin->diff($today_manually);             // diff annab ajavahemiku semestri algusest $today-ni
-    $fromsemesterbegindays = $fromsemesterbegin->format("%r%a");            // muuudame päevadeks
+	                                                                        // sõltuvalt sellest, mis kuupäeva ülal sisestasime.
+	$fromsemesterbegin = $semesterbegin->diff($today_manually);             // diff annab ajavahemiku semestri algusest $today-ni
+	$fromsemesterbegindays = $fromsemesterbegin->format("%r%a");            // muuudame päevadeks
 	                                                                        // võrdleme kas ajavahemik on vahemikus 0-semestri kestvus või on pikem või hoopis negatiivne
     if($fromsemesterbegindays <= $semesterdurationdays && $fromsemesterbegindays >=0) {
-        $semesterprogress_ver2 = 'leks semester omadega sealmaal: <meter min="0" max="' .$semesterdurationdays 
-        .'" value="' .$fromsemesterbegindays .'"></meter>';                 // ajavahemik on lubatud piires, seega semester kestab ja vormindame HTML muutuja mis näitab semetri kulgu
-        }    
-        else { 
-            if ($fromsemesterbegindays <0) 
-            {$semesterprogress_ver2 = " poleks semester veel alanud."; }    // ajavahemik on negatiivne, seega pole semester veel alanud
-            else {
-            $semesterprogress_ver2 = " oleks semester lõppenud.";}          // ajavahemik oli semestrist pikem ja seega semester on lõppenud
-        }
+	    $semesterprogress_ver2 = 'leks semester omadega sealmaal: <meter min="0" max="' .$semesterdurationdays 
+	    .'" value="' .$fromsemesterbegindays .'"></meter>';                 // ajavahemik on lubatud piires, seega semester kestab ja vormindame HTML muutuja mis näitab semetri kulgu
+	    }    
+	    else { 
+	        if ($fromsemesterbegindays <0) 
+	        {$semesterprogress_ver2 = " poleks semester veel alanud."; }    // ajavahemik on negatiivne, seega pole semester veel alanud
+	        else {
+	        $semesterprogress_ver2 = " oleks semester lõppenud.";}          // ajavahemik oli semestrist pikem ja seega semester on lõppenud
+	    }
 	//--------------------------------------KODUTÖÖ-ÜL-LÕPP----------------------------------------------//
 	$picsdir = "images/";                                                   // loeme pildikataloogi sisu
 	$allfiles = array_slice(scandir($picsdir), 2);                          // nr 2 lõpus on scandiriga loetud kaks esimest kirjet, mis räägivad lihtsalt kataloogist, seega need ei ole pildid
@@ -48,21 +48,21 @@
 	$picfiles = [];                                                         //tekitan listi/massiivi $picfiles
 
 	foreach($allfiles as $file) {                                           // for tsükkel et leida vaid pildifailid allfilest ja siis tähista iga võetud fail $file. Tsükkel läbitakse niipalju kordi, kui me $allfilesis leidsime
-		$fileinfo = getimagesize($picsdir .$file);                          // küsime faili suurust, sest selle abil saame me veel hunniku asju teada just sellelt pildilt mh failitüübi, mida meil vaja ongi
-		if(isset($fileinfo["mime"])) {                                      // kui nüüd fileinfos on "mime" siis edasi
-			if(in_array($fileinfo["mime"], $allowedphototypes)) {           // kui arrays on mime ja kas ta on allowed... massiivis
-				array_push($picfiles, $file);                               // array_push tähendab  võtan failime ja panen file picfiles massiivi
-			}
-		}
+	    $fileinfo = getimagesize($picsdir .$file);                          // küsime faili suurust, sest selle abil saame me veel hunniku asju teada just sellelt pildilt mh failitüübi, mida meil vaja ongi
+	    if(isset($fileinfo["mime"])) {                                      // kui nüüd fileinfos on "mime" siis edasi
+	        if(in_array($fileinfo["mime"], $allowedphototypes)) {           // kui arrays on mime ja kas ta on allowed... massiivis
+	            array_push($picfiles, $file);                               // array_push tähendab  võtan failime ja panen file picfiles massiivi
+	        }
+	    }
 	}
 	//--------------------------------------KODUTÖÖ-ÜL-3-------------------------------------------------//
-	$photocount = count($picfiles);                                          // loeme üles piltide arvu
-	$RandImgArray = [];                                                      // tekitan listi/massiivi, kuhu kogun alljärgnevalt 3 random pilti
+	$photocount = count($picfiles);                                         // loeme üles piltide arvu
+	$RandImgArray = [];                                                     // tekitan listi/massiivi, kuhu kogun alljärgnevalt 3 random pilti
 	                                                                        // kasutame do while funktsiooni
 	                                                                        // loome uue listi, kuhu lükkame meile sobivad pildid, st siis unikaalsed pildid. while counter leondab, palju seal listis pilte on
 	do {
-		$RandImg = mt_rand(0, $photocount-1);                               //leiame esimese suvapildi mt_rand funktsiooniga. Sulgudes on vahemik, millest milleni otsime.
-		if(!(in_array($RandImg, $RandImgArray))) {                          //Kui pilti pole RandImgArray nimelises massiivis/listis, siis:
+		$RandImg = mt_rand(0, $photocount-1);                               // leiame esimese suvapildi mt_rand funktsiooniga. Sulgudes on vahemik, millest milleni otsime.
+		if(!(in_array($RandImg, $RandImgArray))) {                          // Kui pilti pole RandImgArray nimelises massiivis/listis, siis:
 			array_push($RandImgArray, $RandImg);                            // lükkame pildi massiivi
 		}
 	} while (count($RandImgArray) < 3);                                     //käitame tsüklit 3 korda, ehk jooksutame, kuni RandImgArrayis on 3 pilti.
@@ -113,7 +113,7 @@
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto2; ?>" alt="suvapilt">
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto3; ?>" alt="suvapilt">
 		</div>
-		<a class="col-12" href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01.php">Vaata koodi Githubist</a>
+		<a class="col-12" href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01_keerulisem.php">Vaata koodi Githubist</a>
 	</div>
 
 <div>
