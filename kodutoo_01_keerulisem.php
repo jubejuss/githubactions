@@ -13,34 +13,21 @@
 	$today = new DateTime("now");                                           // määran tänase kuupäeva
 	$fromsemesterbegin = $semesterbegin->diff($today);
 	$fromsemesterbegindays = $fromsemesterbegin->format("%r%a");
-
 	$semesterprogress = "\n"  .'<p>Semester edeneb: <meter min="0" max="' .$semesterdurationdays .'" value="' .$fromsemesterbegindays .'"></meter>.</p>' ."\n";
-
-	setlocale(LC_TIME, 'et_EE.utf8');                                       // Sellega määran järgmise rea keele
-	$todayname ="<p> Täna on ". strftime('%A. Lihtsal, kuid võimalik, et mõningatel juhtudel mittetoimival moel – kasutatakse `setlocale` funktsiooni.'); 
-	                                                                        // Selle defineerin, et $todayname on päeva nimi. A kirjutab päeva välja
-
-
-	                                                                        // päeva nimetuse leidmine keeruliselt
+	//--------------------------------------KODUTÖÖ-ÜL-1-------------------------------------------------//
 	$weekday_nr=date('w');                                                  // date(w) on PHP funktsioon on nädalapäevade numbriline definitsioon
-
 	                                                                        // moodustame listi/massiivi nädalapäevadega
     $day_names=['pühapäev','esmaspäev','teisipäev','kolmapäev','neljapäev','reede','laupäev'];
 	                                                                        // nüüd ütleme, et võtku listist tänane päev ja kuvagu seda.
-    $todaysweekdayhtml="<p> Täna on ". $day_names[$weekday_nr].". Keerulisel, kuid lollikindlal moel – andmed loetakse massiivist.</p>"; 
-	                                                                        // aga kui semester pole veel alanud või on läbi, kuidas siis see näidatakse?
-	                                                                        // vaata siit https://www.php.net/manual/en/datetime.setdate.php
-	                                                                        // objektorienteeritud style:
-	$today_manually = new DateTime();        
-    $today_manually->setDate(2020, 5, 10);                                  // siin muudan kuupäeva vastavalt soovile, et näha mis juhtub, kui oleks vastav kuupäev
-
-	                                                                        // protserural style:
-	                                                                        //$today_manually = date_create(); // vaata siit https://www.php.net/manual/en/datetime.setdate.php
-	                                                                        // date_date_set($today_manually,2023, 4, 10); // siin muudan kuupäeva vastavalt soovile, et näha mis juhtub, kui oleks vastav kuupäev
-
+    $todaysweekdayhtml="<p> Täna on ". $day_names[$weekday_nr]."</p>"; 
+	//--------------------------------------KODUTÖÖ-ÜL-LÕPP----------------------------------------------//
+	//--------------------------------------KODUTÖÖ-ÜL-2-------------------------------------------------//
+	$today_manually = new DateTime();                                       // seadistame kuupäeva näitamise
+    $today_manually->setDate(2020, 5, 10);                                  // muudan kuupäeva vastavalt soovile, et näha mis juhtub, kui oleks vastav kuupäev
 	$iftoday = "Kui täna oleks ".$today_manually->format('d.m.Y'.",");
-	                                                                        // kontrollime, kas semester kulgeb, on läbi või pole veel alanud, sõltuvalt sellest, mis kuupäeva ülal sisestasime.
-    $fromsemesterbegin = $semesterbegin->diff($today_manually);                 // diff annab ajavahemiku semestri algusest $today-ni
+	                                                                        // kontrollime, kas semester kulgeb, on läbi või pole veel alanud, 
+																			// sõltuvalt sellest, mis kuupäeva ülal sisestasime.
+    $fromsemesterbegin = $semesterbegin->diff($today_manually);             // diff annab ajavahemiku semestri algusest $today-ni
     $fromsemesterbegindays = $fromsemesterbegin->format("%r%a");            // muuudame päevadeks
 	                                                                        // võrdleme kas ajavahemik on vahemikus 0-semestri kestvus või on pikem või hoopis negatiivne
     if($fromsemesterbegindays <= $semesterdurationdays && $fromsemesterbegindays >=0) {
@@ -53,27 +40,22 @@
             else {
             $semesterprogress_ver2 = " oleks semester lõppenud.";}          // ajavahemik oli semestrist pikem ja seega semester on lõppenud
         }
-
-
-	                                                                        // loeme piltide kataloogi sisu
-	$picsdir = "images/";
+	//--------------------------------------KODUTÖÖ-ÜL-LÕPP----------------------------------------------//
+	$picsdir = "images/";                                                   // loeme pildikataloogi sisu
 	$allfiles = array_slice(scandir($picsdir), 2);                          // nr 2 lõpus on scandiriga loetud kaks esimest kirjet, mis räägivad lihtsalt kataloogist, seega need ei ole pildid
-	                                                                        // echo $allfiles[5];
-	                                                                        // var_dump($allfiles);
+
 	$allowedphototypes = ["image/jpeg", "image/png"];
-	$picfiles = [];                                                         //tekitan listi
+	$picfiles = [];                                                         //tekitan listi/massiivi $picfiles
 
 	foreach($allfiles as $file) {                                           // for tsükkel et leida vaid pildifailid allfilest ja siis tähista iga võetud fail $file. Tsükkel läbitakse niipalju kordi, kui me $allfilesis leidsime
 		$fileinfo = getimagesize($picsdir .$file);                          // küsime faili suurust, sest selle abil saame me veel hunniku asju teada just sellelt pildilt mh failitüübi, mida meil vaja ongi
-	                                                                        // var_dump($fileinfo); // edastab kogu info, et saame vaadata, mida meil kätte saada
 		if(isset($fileinfo["mime"])) {                                      // kui nüüd fileinfos on "mime" siis edasi
 			if(in_array($fileinfo["mime"], $allowedphototypes)) {           // kui arrays on mime ja kas ta on allowed... massiivis
 				array_push($picfiles, $file);                               // array_push tähendab  võtan failime ja panen file picfiles massiivi
 			}
 		}
 	}
-
-
+	//--------------------------------------KODUTÖÖ-ÜL-3-------------------------------------------------//
 	$photocount = count($picfiles);                                          // loeme üles piltide arvu
 	$RandImgArray = [];                                                      // tekitan listi/massiivi, kuhu kogun alljärgnevalt 3 random pilti
 	                                                                        // kasutame do while funktsiooni
@@ -89,9 +71,7 @@
 	$randomphoto = $picfiles[$RandImgArray[0]];                             // seega randomfoto on pildifailide folderist pilt nr $RandImg
 	$randomphoto2 = $picfiles[$RandImgArray[1]];
 	$randomphoto3 = $picfiles[$RandImgArray[2]];
-
-	// ver 2
-	$randomphotofunc = array_rand($picfiles,3); 
+	//--------------------------------------KODUTÖÖ-ÜL-LÕPP----------------------------------------------//
 
 ?>
 <!DOCTYPE html>
@@ -124,21 +104,14 @@
 		echo $semesterprogress_ver2;
 		echo "</p>";
 		echo $todaysweekdayhtml;
-		echo $todayname;
 	?>
 
 	<div class="row">
-		<h2 class="col-12">Pildid keerulisel moel</h2>
+		<h2 class="col-12">Pildid funktsiooniga</h2>
 		<div class="d-md-flex">
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto; ?>" alt="suvapilt"> <!-- echo järel ütlen, mis kataloogis, mis pilt asub -->
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto2; ?>" alt="suvapilt">
 			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto3; ?>" alt="suvapilt">
-		</div>
-		<h2 class="col-12">Pildid funktsiooniga</h2>
-		<div class="d-md-flex">
-			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[0]]; ?>" alt="suvapilt">
-			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[1]]; ?>" alt="suvapilt">
-			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[2]]; ?>" alt="suvapilt">
 		</div>
 		<a class="col-12" href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01.php">Vaata koodi Githubist</a>
 	</div>
