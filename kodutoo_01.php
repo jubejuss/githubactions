@@ -20,14 +20,12 @@
 	$todayname ="<p> Täna on ". strftime('%A. Lihtsal, kuid võimalik, et mõningatel juhtudel mittetoimival moel – kasutatakse `setlocale` funktsiooni.'); 
 	                                                                        // Selle defineerin, et $todayname on päeva nimi. A kirjutab päeva välja
 
-
-	                                                                        // päeva nimetuse leidmine keeruliselt
+	// sama asi keerulisemalt
 	$weekday_nr=date('w');                                                  // date(w) on PHP funktsioon on nädalapäevade numbriline definitsioon
-
 	                                                                        // moodustame listi/massiivi nädalapäevadega
-    $day_names=['pühapäev','esmaspäev','teisipäev','kolmapäev','neljapäev','reede','laupäev'];
+	$day_names=['pühapäev','esmaspäev','teisipäev','kolmapäev','neljapäev','reede','laupäev'];
 	                                                                        // nüüd ütleme, et võtku listist tänane päev ja kuvagu seda.
-    $todaysweekdayhtml="<p> Täna on ". $day_names[$weekday_nr].". Keerulisel, kuid lollikindlal moel – andmed loetakse massiivist.</p>"; 
+	$todaysweekdayhtml="<p> Täna on ". $day_names[$weekday_nr].". Keerulisel, kuid lollikindlal moel – andmed loetakse massiivist.</p>"; 
 	//--------------------------------------KODUTÖÖ-ÜL-LÕPP----------------------------------------------//
 	//--------------------------------------KODUTÖÖ-ÜL-2-------------------------------------------------//
 	                                                                        // aga kui semester pole veel alanud või on läbi, kuidas siis see näidatakse?
@@ -106,7 +104,11 @@
 		echo $myname;
 	?>
 	</h2>
-	<p>See leht on valminud õppetöö raames!</p>
+	<h3>Kodune ülesanne</h3>
+	<p>Kodusene ülesanne on lahendatud nii keerulisemalt kui lihtsamalt.</p>
+	<a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01_lihtsam.php">Lihtsama versiooni kood</a>
+	<a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01_keerulisem.php">Keerulisema versiooni kood</a>
+	<a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01.php">Siinnse versiooni kood (mõlemad koos)</a>
 	<?php
 		echo $timehtml;
 		echo $semesterdurhtml;
