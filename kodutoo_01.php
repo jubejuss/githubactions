@@ -140,6 +140,7 @@
 
 <div>
 	<a href="./">Aine kodulehele</a>
+	<p>Juhhei</p>
 </div>
 	<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script type="module" src="assets/js/starter.js"></script>  
