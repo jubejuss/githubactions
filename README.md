@@ -1,6 +1,6 @@
 # Koolitööde repo
 
-Siinne repo, on nö töökorraldus, kus arendus toimub oma arvutis, muudatused pushitakse Githubi ja Githubis on seadistatud action, mis muudatuste tekkel, lükkab need omakorda nö liveserverisse, ehk valmis kodulehele.
+Siinne repo on nö töökorraldus, kus arendus toimub oma arvutis, muudatused pushitakse Githubi ja Githubis on seadistatud action, mis muudatuste tekkel, lükkab need omakorda nö liveserverisse, ehk valmis kodulehele.
 
 Kasutatud on Apleboy SSH skripti.  
 Töö on tehtud õppeeesmärgil.
