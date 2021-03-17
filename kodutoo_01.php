@@ -106,6 +106,7 @@
 	</h2>
 	<h3>Kodune ülesanne</h3>
 	<p>Kodune ülesanne on lahendatud nii keerulisemalt kui lihtsamalt.</p>
+	<p>Lahenduste leidmisel on kasutatud grupikaaslaste abi.</p>
 	<p class="font-weight-bold"><a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01_lihtsam.php">Lihtsama versiooni kood</a></p>
 	<p class="font-weight-bold"><a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01_keerulisem.php">Keerulisema versiooni kood</a></p>
 	<p class="font-weight-bold"><a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01.php">Siinse versiooni kood (mõlemad koos)</a></p>
