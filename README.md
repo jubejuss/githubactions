@@ -11,7 +11,7 @@ Siin kasutatud Githubi actioni setupi täpsem juhis:
 ## Juhend
 
 1. Vaja on leida Githubist Appleboy SSH Action – SSH Remote Commands [https://github.com/marketplace/actions/ssh-remote-commands](https://github.com/marketplace/actions/ssh-remote-commands)
-2. Tee remote serveri ja githubi jaoks ssh key'd
+2. Tee remote serveri ja githubi jaoks ssh key'd. [https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 3. Kopi private key, mine Githubi projekti setingutesse ja klikka Secret jaotusel ja "Add new secret"
 4. Pane nimi ja jäta see meelde, et seda läheb hiljem vaja (siis tuled tagasi ja võtad selle siit), lisaks muidugi peisti key.
 5. Seejärel kopi (enda arvutist) public key
