@@ -28,7 +28,6 @@
 		// loome andmebaasiga ühenduse
 		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		// määrame suhtluseks kodeeringu
-		$conn = set_charset("utf-8");
 		// valmistan ette SQL käsu
 		$stmt = $conn -> prepare("INSERT INTO vr21_news (vr21_news_title, vr21_news_content, vr21_news_author) VALUES (?,?,?)"); 
 		echo $conn -> error;
