@@ -3,7 +3,7 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', TRUE);
 	ini_set('display_startup_errors', TRUE);
-	
+
 	require_once "../../conf.php";
 	// echo $server_host; // kui tahan testida, et kas on ühendus olemas.
 	$news_input_error = null;	
@@ -28,7 +28,7 @@
 		// loome andmebaasiga ühenduse
 		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		// määrame suhtluseks kodeeringu
-		$conn = set_charset("utf8");
+		$conn = set_charset("utf-8");
 		// valmistan ette SQL käsu
 		$stmt = $conn -> prepare("INSERT INTO vr21_news (vr21_news_title, vr21_news_content, vr21_news_author) VALUES (?,?,?)"); 
 		echo $conn -> error;
