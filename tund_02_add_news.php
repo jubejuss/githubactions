@@ -26,6 +26,8 @@
 		// valmistan ette SQL käsu
 		$stmt = $conn -> prepare("INSERT INTO vr21_news (vr21_news_title,	vr21_news_content, vr21_news_author) VALUES (?,?,?)"); 
 		echo $conn -> error;
+		// seome küsimärgid päris andmetega. i - integer, s - string, d - decimal
+		$stmt -> bind_param("sss", $news_title, $news_content, $news_author);
 	}
 
 ?>
