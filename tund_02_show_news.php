@@ -12,7 +12,7 @@ ini_set('display_startup_errors', TRUE);
 		// loome andmebaasiga ühenduse
 		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		// määrame suhtluseks kodeeringu
-		$conn = set_charset("utf-8");
+		// $conn = set_charset("utf-8");
 		// valmistan ette SQL käsu
 		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author FROM v21_news"); 
 		echo $conn -> error;
