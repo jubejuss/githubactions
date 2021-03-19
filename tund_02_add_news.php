@@ -19,7 +19,7 @@
 	}
 
 	function store_news($news_title, $news_content, $news_author) {
-		echo $news_title .$news_content .$news_author
+		echo $news_title .$news_content .$news_author;
 	}
 
 ?>
