@@ -52,8 +52,6 @@ ini_set('display_startup_errors', TRUE);
 
 	<?php echo $news_html; ?>
 
-	<p><?php echo $news_input_error; ?></p>
-
 <div>
 	<a href="./">Aine kodulehele</a>
 </div>
