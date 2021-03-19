@@ -10,7 +10,7 @@
 		// määrame suhtluseks kodeeringu
 		$conn = set_charset("utf8");
 		// valmistan ette SQL käsu
-		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author FROM vr21_news"); 
+		$stmt = $conn -> prepare("SELECT v21_news_title, vr21_news_content, vr21_news_author FROM vr21_news"); 
 		echo $conn -> error;
 		$stmt -> bind_result($news_title_from_db, $news_content_from_db, $news_author_from_db);
 		$stmt -> execute();
