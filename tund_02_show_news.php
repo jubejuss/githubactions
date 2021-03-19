@@ -12,8 +12,7 @@
 		// valmistan ette SQL käsu
 		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author FROM vr21_news"); 
 		echo $conn -> error;
-		// seome küsimärgid päris andmetega. i - integer, s - string, d - decimal
-		$stmt -> bind_param("sss", $news_title, $news_content, $news_author);
+		$stmt -> bind_result($news_title_from_db, $news_content_from_db, $news_author_from_db);
 		$stmt -> execute();
 		$stmt -> close();
 		$conn -> close();
