@@ -1,5 +1,6 @@
 <?php
 
+	require_once "../../conf.php";
 	$news_input_error = null;	
 	// var_dump($_POST); // lihtsalt vaatan, mida sisestasin, on olemas $_get
 	if(isset($_POST["news_submit"])) { // kui nuppu "news_submit" klõpsatakse, siis
@@ -12,6 +13,7 @@
 		}
 		if(empty($news_input_error)){ 
 			// salvestame andmebaasi
+
 		}
 	}
 
