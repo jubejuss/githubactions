@@ -3,7 +3,7 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', TRUE);
 	ini_set('display_startup_errors', TRUE);
-	require_once "../../../conf.php";
+	require_once "../../conf.php";
 
 	// echo $server_host; // kui tahan testida, et kas on ühendus olemas.
 	$news_input_error = null;	
