@@ -28,6 +28,7 @@
 		echo $conn -> error;
 		// seome küsimärgid päris andmetega. i - integer, s - string, d - decimal
 		$stmt -> bind_param("sss", $news_title, $news_content, $news_author);
+		$stmt -> execute();
 	}
 
 ?>
