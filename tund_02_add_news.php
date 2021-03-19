@@ -1,7 +1,7 @@
 <?php
 
 	require_once "../../conf.php";
-	echo $server_host;
+	// echo $server_host; // kui tahan testida, et kas on ühendus olemas.
 	$news_input_error = null;	
 	// var_dump($_POST); // lihtsalt vaatan, mida sisestasin, on olemas $_get
 	if(isset($_POST["news_submit"])) { // kui nuppu "news_submit" klõpsatakse, siis
@@ -14,8 +14,12 @@
 		}
 		if(empty($news_input_error)){ 
 			// salvestame andmebaasi
-
+			store_news($_POST["news_title_input"], $_POST["news_content_input"], $_POST["news_author_input"]);
 		}
+	}
+
+	function store_news($news_title, $news_content, $news_author) {
+		echo $news_title .$news_content .$news_author
 	}
 
 ?>
