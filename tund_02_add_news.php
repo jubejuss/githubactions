@@ -20,7 +20,12 @@
 
 	function store_news($news_title, $news_content, $news_author) {
 		// echo $news_title .$news_content .$news_author; // kuvan lihtsalt
-		echo $GLOBALS["server_host"];
+		// echo $GLOBALS["server_host"];
+		// loome andmebaasiga ühenduse
+		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
+		// valmistan ette SQL käsu
+		$stmt = $conn -> prepare("INSERT INTO vr21_news (vr21_news_title,	vr21_news_content, vr21_news_author) VALUES (?,?,?)"); 
+		echo $conn -> error;
 	}
 
 ?>
