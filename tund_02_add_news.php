@@ -12,7 +12,7 @@
 		if(empty($_POST["news_content_input"])) {
 			$news_input_error .= "Uudise tekst on puudu!"; // lisan eelmise rea errorteatele ehk .=
 		}
-		if(empty($news_input_error)){ 
+		if(empty($news_input_error)) { 
 			// salvestame andmebaasi
 			store_news($_POST["news_title_input"], $_POST["news_content_input"], $_POST["news_author_input"]);
 		}
