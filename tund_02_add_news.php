@@ -1,5 +1,7 @@
 <?php
 
+	require_once "../../conf.php";
+
 	// echo $server_host; // kui tahan testida, et kas on ühendus olemas.
 	$news_input_error = null;	
 	// var_dump($_POST); // lihtsalt vaatan, mida sisestasin, on olemas $_get
