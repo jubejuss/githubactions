@@ -23,7 +23,7 @@ ini_set('display_startup_errors', TRUE);
 		echo $conn -> error;
 
 		
-		$stmt -> bind_result($news_title_from_db, $news_content_from_db, $news_author_from_db);
+		$stmt -> bind_result($news_title_from_db, $news_content_from_db, $news_author_from_db, $news_date_from_db);
 		$stmt -> execute();
 		$raw_news_html = null;
 		while ($stmt -> fetch()) {
