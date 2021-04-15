@@ -6,7 +6,15 @@
 
 	require_once "../../conf.php";
 	// echo $server_host; // kui tahan testida, et kas on ühendus olemas.
-	$news_input_error = null;	
+	$news_input_error = null;
+	//kodutöö. Seleks, et salvestada vormi enne valesti sisestamist sisestatud andmed.
+	$news_title_remember = null;
+	$news_content_remember = null;
+	$news_author_remember = null;
+
+
+
+
 	// var_dump($_POST); // lihtsalt vaatan, mida sisestasin, on olemas $_get
 	if(isset($_POST["news_submit"])) { // kui nuppu "news_submit" klõpsatakse, siis
 		// echo "klõpsati"; // lihtne test, kas eelmine rida töötab
@@ -54,15 +62,15 @@
 	<form method="POST">
 		<label for="news_title_input">Uudise pealkiri</label>
 		<br>
-		<input type="text" id="news_title_input" name="news_title_input" placeholder="Pealkiri">
+		<input type="text" id="news_title_input" name="news_title_input" placeholder="Pealkiri" value="<?php echo $news_title_remember ?>">
 		<br>
 		<label for="news_content_input">Uudise tekst</label>
 		<br>
-		<textarea id="news_content_input" name="news_content_input" placeholder="Uudise tekst" rows="6" cols="40"></textarea>
+		<textarea id="news_content_input" name="news_content_input" placeholder="Uudise tekst" value="<?php echo $news_content_remember ?>" rows="6" cols="40"></textarea>
 		<br>
 		<label for="news_author_input">Uudise lisaja nimi</label>
 		<br>
-		<input type="text" id="news_author_input" name="news_author_input" placeholder="Nimi">
+		<input type="text" id="news_author_input" name="news_author_input" placeholder="Nimi" value="<?php echo $news_author_remember ?>">
 		<br>
 		<input type="submit" name="news_submit" value="Salvesta uudis">
 	</form>
