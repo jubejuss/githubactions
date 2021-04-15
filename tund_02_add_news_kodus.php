@@ -21,7 +21,7 @@
 			$news_input_error = "Uudise pealkiri on puudu! ";
 		// kodutöö
 		} else {
-			$news_title_remember = Input::str($_POST['news_title_input']);
+			$news_title_remember = Input::str($_POST["news_title_input"]);
 		}
 
 
