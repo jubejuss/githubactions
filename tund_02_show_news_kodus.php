@@ -5,7 +5,7 @@ ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
 
 	require_once "../../conf.php";
-
+	//kodutöö
 	function read_news(){
 		if(isset($_POST["count_submit"])) { 		// kui oled vainud kuvatava uudiste arvu
 		$newsCount = $_POST['newsCount']; 			// kuvatavate uudiste arv sisendist
@@ -19,6 +19,7 @@ ini_set('display_startup_errors', TRUE);
 		// määrame suhtluseks kodeeringu
 		// $conn = set_charset("utf-8");
 		// valmistan ette SQL käsu
+		// kodutöö
 		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author, vr21_news_added FROM v21_news ORDER BY vr21_news_id DESC LIMIT ?");
 		echo $conn -> error;
 
@@ -27,8 +28,13 @@ ini_set('display_startup_errors', TRUE);
 		$stmt -> bind_param("s", $newsCount); // siin on sisend uudiste käsule
 		$stmt -> execute();
 		$raw_news_html = null;
+		// kodutöö
+		$newsDate = new DateTime($news_date_from_db); // muuda andmebaasist võetud kuupäevast dateTime objektiks
+		$newsDate = $newsDate->format('d.m.Y'); // Teisendame dateTime objekti eestikeelele sobivaks
+
 		while ($stmt -> fetch()) {
 			$raw_news_html .= "\n <h2>" .$news_title_from_db ."</h2>";
+			$raw_news_html .= "\n <p>Lisatud: " .$newsDate ."</p>"; // kuupäev (kodutöö)
 			$raw_news_html .= "\n <p>" .nl2br($news_content_from_db) ."</p>";
 			$raw_news_html .= "\n <p>Edastas: ";
 			if(!empty($news_author_from_db)) {
