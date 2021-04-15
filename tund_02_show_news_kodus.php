@@ -19,7 +19,8 @@ ini_set('display_startup_errors', TRUE);
 		// määrame suhtluseks kodeeringu
 		// $conn = set_charset("utf-8");
 		// valmistan ette SQL käsu
-		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author, vr21_news_added FROM vr21_news ORDER BY vr21_news_id DESC LIMIT ?");
+		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author FROM v21_news"); 
+		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author FROM vr21_news ORDER BY vr21_news_id DESC LIMIT ?");
 		echo $conn -> error;
 
 
