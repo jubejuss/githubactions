@@ -66,11 +66,11 @@
 		<br>
 		<label for="news_content_input">Uudise tekst</label>
 		<br>
-		<textarea id="news_content_input" name="news_content_input" placeholder="Uudise tekst" value="<?php echo $news_content_remember ?>" rows="6" cols="40"></textarea>
+		<textarea id="news_content_input" name="news_content_input" placeholder="Uudise tekst" value="<?php echo isset($_POST["news_content_input"]) ? $_POST["news_content_input"] : "" ?>" rows="6" cols="40"></textarea>
 		<br>
 		<label for="news_author_input">Uudise lisaja nimi</label>
 		<br>
-		<input type="text" id="news_author_input" name="news_author_input" placeholder="Nimi" value="<?php echo $news_author_remember ?>">
+		<input type="text" id="news_author_input" name="news_author_input" placeholder="Nimi" value="<?php echo isset($_POST["news_author_input"]) ? $_POST["news_author_input"] : "" ?>">
 		<br>
 		<input type="submit" name="news_submit" value="Salvesta uudis">
 	</form>
