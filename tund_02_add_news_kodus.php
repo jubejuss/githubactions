@@ -7,11 +7,6 @@
 	require_once "../../conf.php";
 	// echo $server_host; // kui tahan testida, et kas on ühendus olemas.
 	$news_input_error = null;
-	//kodutöö. Seleks, et salvestada vormi enne valesti sisestamist sisestatud andmed.
-	$news_title_remember = null;
-	$news_content_remember = null;
-	$news_author_remember = null;
-
 
 
 
