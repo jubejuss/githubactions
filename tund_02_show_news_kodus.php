@@ -6,10 +6,15 @@ ini_set('display_startup_errors', TRUE);
 
 	require_once "../../conf.php";
 
-	function read_news() {
-		// echo $news_title .$news_content .$news_author; // kuvan lihtsalt
-		// echo $GLOBALS["server_host"];
-		// loome andmebaasiga ühenduse
+	function read_news(){
+		if(isset($_POST["count_submit"])) { 		// kui oled vainud kuvatava uudiste arvu
+		$newsCount = $_POST['newsCount']; 			// kuvatavate uudiste arv sisendist
+		}
+		else { 										
+			$newsCount = 3; 						// uudiste arv vaikimisi
+		}
+
+
 		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		// määrame suhtluseks kodeeringu
 		// $conn = set_charset("utf-8");
