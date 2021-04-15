@@ -20,7 +20,11 @@ ini_set('display_startup_errors', TRUE);
 		// $conn = set_charset("utf-8");
 		// valmistan ette SQL käsu
 		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author FROM v21_news"); 
+		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author, vr21_news_added FROM vr21_news ORDER BY vr21_news_id DESC LIMIT ?");
 		echo $conn -> error;
+
+
+
 		$stmt -> bind_result($news_title_from_db, $news_content_from_db, $news_author_from_db);
 		$stmt -> execute();
 		$raw_news_html = null;
