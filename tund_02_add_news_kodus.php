@@ -66,7 +66,7 @@
 		<br>
 		<label for="news_content_input">Uudise tekst</label>
 		<br>
-		<textarea id="news_content_input" name="news_content_input" placeholder="Uudise tekst" value="<?php echo isset($_POST["news_content_input"]) ? $_POST["news_content_input"] : "" ?>" rows="6" cols="40"></textarea>
+		<textarea id="news_content_input" name="news_content_input" placeholder="Uudise tekst" rows="6" cols="40"><?php echo isset($_POST["news_content_input"]) ? htmlspecialchars($_POST["news_content_input"]) : ""; ?></textarea>
 		<br>
 		<label for="news_author_input">Uudise lisaja nimi</label>
 		<br>
