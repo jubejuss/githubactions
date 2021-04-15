@@ -16,14 +16,22 @@
 
 
 	// var_dump($_POST); // lihtsalt vaatan, mida sisestasin, on olemas $_get
-	if(isset($_POST["news_submit"])) { // kui nuppu "news_submit" klõpsatakse, siis
-		// echo "klõpsati"; // lihtne test, kas eelmine rida töötab
-		if(empty($_POST["news_title_input"])) { // kui on tühi
-			$news_input_error = "Uudise pealkiri on puudu! "; // siin annan errorile sisu
+	if(isset($_POST["news_submit"])) { 
+		if(empty($_POST["news_title_input"])) {
+			$news_input_error = "Uudise pealkiri on puudu! ";
+		// kodutöö
+		} else {
+			$news_title_remember = Input::str($_POST['news_title_input']);
 		}
+
+
+
 		if(empty($_POST["news_content_input"])) {
 			$news_input_error .= "Uudise tekst on puudu!"; // lisan eelmise rea errorteatele ehk .=
 		}
+
+
+
 		if(empty($news_input_error)) { 
 			// salvestame andmebaasi
 			store_news($_POST["news_title_input"], $_POST["news_content_input"], $_POST["news_author_input"]);
