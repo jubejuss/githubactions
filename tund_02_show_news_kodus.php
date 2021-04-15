@@ -54,7 +54,10 @@ ini_set('display_startup_errors', TRUE);
 </head>
 <body class="container bg-gradient-secondary text-bright">
 	<h1>Uudiste näitamine</h1>
-
+	<form method="POST"> <!-- Uudiste arvu määramise vorm -->
+	<input type="number" min="1" max="10" value="3" name="newsCount">
+	<input type="submit" name="count_submit" value="Kuva uudised">
+	</form>
 	<?php echo $news_html; ?>
 
 <div>
