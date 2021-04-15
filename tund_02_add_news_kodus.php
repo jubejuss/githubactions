@@ -10,7 +10,7 @@
 
 
 
-	// var_dump($_POST); // lihtsalt vaatan, mida sisestasin, on olemas $_get
+	// var_dump($_POST); // lihtsalt vaatan, mida sisestasin, on olemas $_get 
 	if(isset($_POST["news_submit"])) { 
 		if(empty($_POST["news_title_input"])) {
 			$news_input_error = "Uudise pealkiri on puudu! ";

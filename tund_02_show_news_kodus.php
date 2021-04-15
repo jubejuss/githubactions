@@ -7,7 +7,7 @@ ini_set('display_startup_errors', TRUE);
 	require_once "../../conf.php";
 	//kodutöö
 	function read_news(){
-		if(isset($_POST["count_submit"])) { 		// kui oled vainud kuvatava uudiste arvu
+		if(isset($_POST["count_submit"])) { 		// kui oled vainud kuvatava uudiste arvu 
 		$newsCount = $_POST['newsCount']; 			// kuvatavate uudiste arv sisendist
 		}
 		else { 										
