@@ -19,19 +19,11 @@
 	if(isset($_POST["news_submit"])) { 
 		if(empty($_POST["news_title_input"])) {
 			$news_input_error = "Uudise pealkiri on puudu! ";
-		// kodutöö
-		} else {
-			$news_title_remember = Input::str($_POST["news_title_input"]);
 		}
-
-
-
+		
 		if(empty($_POST["news_content_input"])) {
 			$news_input_error .= "Uudise tekst on puudu!"; // lisan eelmise rea errorteatele ehk .=
 		}
-
-
-
 		if(empty($news_input_error)) { 
 			// salvestame andmebaasi
 			store_news($_POST["news_title_input"], $_POST["news_content_input"], $_POST["news_author_input"]);
@@ -70,7 +62,7 @@
 	<form method="POST">
 		<label for="news_title_input">Uudise pealkiri</label>
 		<br>
-		<input type="text" id="news_title_input" name="news_title_input" placeholder="Pealkiri" value="<?php echo $news_title_remember ?>">
+		<input type="text" id="news_title_input" name="news_title_input" placeholder="Pealkiri" value="<?php echo isset($_POST["news_title_input"]) ? $_POST["news_title_input"] : "" ?>">
 		<br>
 		<label for="news_content_input">Uudise tekst</label>
 		<br>
