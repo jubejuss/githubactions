@@ -5,7 +5,7 @@
 	ini_set('display_startup_errors', TRUE);
 
   require_once "../../conf.php";
-  require_once("fnc_general.php"); // see on mul olemas, see on eelmise tunni teema, vt järele
+  require_once "fnc_general.php"; // see on mul olemas, see on eelmise tunni teema, vt järele
   require_once "fnc_user.php";
     
   $notice = null;
@@ -114,6 +114,11 @@
 	if(empty($name_error) and empty($surname_error) and empty($birth_month_error) and empty($birth_year_error) and empty($birth_day_error) and empty($gender_error) and empty($email_error) and empty($password_error) and empty($confirm_password_error) and empty($birth_date_error)) {
 		// salvestus ehk kasutaja loomine
 		$notice = sign_up($name, $surname, $gender, $birth_date, $email, $_POST["password_input"]);
+		if($notice == 1) {
+			$notice = "Uus kasutaja on edukalt loodud!";
+		} else {
+			$notice = "Kasutaja loomisel tekkis tehniline tõrge!";
+		}
 	}
 	
   } //kui on nuppu vajutatud
