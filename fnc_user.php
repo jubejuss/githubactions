@@ -18,3 +18,15 @@
 		$conn -> close();
         return $notice;
     }
+
+    function sign_in($email, $password) {
+        $notice = 0;
+        $conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
+        $stmt = $conn -> prepare("SELECT vr21_users_id, vr21_users_firstname, vr21_users_lastname, vr21_users_password FROM vr21_users WHERE vr21_users_email = ?");
+        echo $conn -> error;
+        $stmt -> bind_param("s", $email);
+        $stmt -> bind_result($id_from_db, $first_name_from_db, $last_name_from_db, $password_from_db);
+        $stmt -> close();
+		$conn -> close();
+        return $notice;
+    }

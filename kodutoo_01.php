@@ -1,4 +1,9 @@
 <?php
+	// kolmanda tunni lisa
+	require_once "../../conf.php";
+	require_once "fnc_general.php";
+	require_once "fnc_user.php";
+
 	$pagetitle = "Õpime PHP-d";
 	$myname = "Juho Kalberg";
 	$currenttime = date("d.m.Y H:i:s");
