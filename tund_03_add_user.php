@@ -65,6 +65,16 @@
 		$birth_year_error = "Palun vali sünniaasta!";
 	}
 
+	// kuupäeva valiidsus ehk reaalsuse kontroll.  Kas selline kuupäev on kalendris olemas ka.
+	if(empty($birth_day_error) and empty($birth_month_error) and empty($birth_year_error)) {
+		if(checkdate($birth_month, $birth_day, $birth_year)) {
+			$temp_date = new DateTime($birth_year ."-" .$birth_month ."-" .$birth_day); // vaata videost kas saaks lihtsamalt
+			$birth_date = $temp_date->format("Y-m-d");
+		} else {
+			$birth_date_error = "Valitud kuupäev on vigane!";
+		}
+	}
+
 	//email ehk kasutajatunnus
 	
 	  if (isset($_POST["email"]) and !empty($_POST["email"])){
