@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	// kolmanda tunni lisa
 	require_once "../../conf.php";
 	require_once "fnc_general.php";

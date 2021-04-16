@@ -33,6 +33,7 @@
             if(password_verify($password, $password_from_db)) {
                 // olemegi sisse loginud
                 $notice = 1;
+                $_SESSION["user_id"] = $id_from_db;
                 $stmt -> close();
 		        $conn -> close();
                 header("Locaton: home.php");
