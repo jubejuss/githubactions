@@ -6,6 +6,7 @@
 
   require_once "../../conf.php";
   require_once("fnc_general.php"); // see on mul olemas, see on eelmise tunni teema, vt järele
+  require_once "fnc_user.php";
     
   $notice = null;
   $name = null;
