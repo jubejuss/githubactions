@@ -86,6 +86,15 @@
 	  } else {
 		  $email_error = "Palun sisesta e-postiaadress!";
 	  }
+
+	// Parooli kontroll
+	if(!empty($_POST["password_input"])) {
+		if(strlen($_POST["password_input"])<8) { // kontrollime sõna pikkust – string lenght alla 8
+			$password_error = "Liiga lühike salasõna!";
+		}
+	} else {
+		$password_error = "Palun sisestage salasõna!";
+	}
 	 
 	
   } //kui on nuppu vajutatud
@@ -163,9 +172,9 @@
 	  <label>E-mail (kasutajatunnus):</label><br>
 	  <input type="email" name="email" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
 	  <label>Salasõna (min 8 tähemärki):</label><br>
-	  <input name="password" type="password"><span><?php echo $password_error; ?></span><br>
+	  <input name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
 	  <label>Korrake salasõna:</label><br>
-	  <input name="confirmpassword" type="password"><span><?php echo $confirm_password_error; ?></span><br>
+	  <input name="confirmpassword_input" type="password"><span><?php echo $confirm_password_error; ?></span><br>
 	  <input name="user_data_submit" type="submit" value="Loo kasutaja"><span><?php echo $notice; ?></span>
 	</form>
 	<hr>
