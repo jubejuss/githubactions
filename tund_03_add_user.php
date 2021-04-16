@@ -1,4 +1,9 @@
 <?php
+
+	error_reporting(E_ALL);
+	ini_set('display_errors', TRUE);
+	ini_set('display_startup_errors', TRUE);
+
   require_once "../../conf.php";
   //require_once("fnc_general.php"); // see on mul olemas, see on eelmise tunni teema, vt järele
     
@@ -103,7 +108,12 @@
 			$confirm_password_error = "Sisestatud salasõnad ei ole ühesugused!";
 		}
 	}
-	 
+	
+	//kui vigu pole siis salvestame
+	if(empty($name_error) and empty($surname_error) and empty($birth_month_error) and empty($birth_year_error) and empty($birth_day_error) and empty($gender_error) and empty($email_error) and empty($password_error) and empty($confirm_password_error) and empty($birth_date_error)) {
+		// salvestus ehk kasutaja loomine
+		$notice = sign_up($name, $surname, $gender, $birth_date, $email, $_POST["password_input"]);
+	}
 	
   } //kui on nuppu vajutatud
   
