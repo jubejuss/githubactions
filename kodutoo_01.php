@@ -83,6 +83,18 @@
 	// sama asi lihtsamalt
 	$randomphotofunc = array_rand($picfiles,3); 
 	//--------------------------------------KODUTÖÖ-ÜL-LÕPP----------------------------------------------// 
+
+	// sisselogimine
+	$notice = null;
+	$email = null;
+	$email_error = null;
+	$password_error = null;
+	if(isset($_POST["login_submit"])) {
+		//kontrollime, kas email ja password on olemas
+
+		$notice = sign_in($_POST["email_input"], $_POST["password_input"]);
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -104,6 +116,18 @@
 		echo $myname;
 	?>
 	</h2>
+	<h3>Kolmanda tunni lisandused</h3>
+
+	<h4>Logi sisse</h4>
+	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+		<label>E-mail (kasutajatunnus):</label><br>
+		<input type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
+		<label>Salasõna:</label><br>
+		<input name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
+		<input name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice; ?></span>
+	</form>
+	<p> Loo endale <a href="tund_03_add_user.php">kasutajakonto</a> </p>
+
 	<h3>Kodune ülesanne</h3>
 	<p>Kodune ülesanne on lahendatud nii keerulisemalt kui lihtsamalt.</p>
 	<p>Lahenduste leidmisel on kasutatud grupikaaslaste abi.</p>
