@@ -26,6 +26,20 @@
         echo $conn -> error;
         $stmt -> bind_param("s", $email);
         $stmt -> bind_result($id_from_db, $first_name_from_db, $last_name_from_db, $password_from_db);
+        $stmt -> execute();
+        // kui leiti
+        if($stmt -> fetch()) {
+            //kas parool klapib
+            if(password_verify($password, $password_from_db)) {
+                // olemegi sisse loginud
+                $notice = 1;
+                $stmt -> close();
+		        $conn -> close();
+                header("Locaton: home.php");
+                exit();
+            }
+        }
+
         $stmt -> close();
 		$conn -> close();
         return $notice;
