@@ -6,7 +6,7 @@
         $stmt = $conn->prepare("INSERT INTO vr21_users (vr21_users_firstname, vr21_users_lastname, vr21_users_birthdate, vr21_users_gender, vr21_users_email, vr21_users_password) VALUES (?,?,?,?,?,?)"); //küsimärkide asemele pannakse siis automaatselt väärtused
         echo $conn->error;
         // krüpteerime parooli vastava funktsiooniga
-        $options = ["cost" => 12, "salt" => substr(sha1(rand()), 0, 22)]; // cost on iteratsioonide arv, ehk palju operatsioone tehakse. Salt on mingi lisand, mis võetakse abiks ja lisatakse mingeid fraase otsa vms, ehk parool muutub, ja random ja sealt veel jupp välja
+        $options = ["cost" => 12]; // cost on iteratsioonide arv, ehk palju operatsioone tehakse. 
         $pwd_hash = password_hash($password, PASSWORD_BCRYPT, $options);
 
         $stmt -> bind_param("sssiss", $name, $surname, $birth_date, $gender, $email, $pwd_hash);
