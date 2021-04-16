@@ -95,6 +95,14 @@
 	} else {
 		$password_error = "Palun sisestage salasõna!";
 	}
+
+	if(empty($_POST["confirmpassword_input"])) {
+		$confirm_password_error = "Palun sisestage salasõna kaks korda!";
+	} else {
+		if($_POST["confirmpassword_input"] != $_POST["password_input"]) {
+			$confirm_password_error = "Sisestatud salasõnad ei ole ühesugused!";
+		}
+	}
 	 
 	
   } //kui on nuppu vajutatud
