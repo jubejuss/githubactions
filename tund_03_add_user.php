@@ -1,6 +1,6 @@
 <?php
   require_once "../../conf.php";
-  require_once("fnc_general.php");
+  //require_once("fnc_general.php"); // see on mul olemas, see on eelmise tunni teema, vt järele
     
   $notice = null;
   $name = null;
@@ -13,7 +13,7 @@
   $birth_date = null;
   $month_names_et = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni","juuli", "august", "september", "oktoober", "november", "detsember"];
   
-  //muutujad võimalike veateadetega
+  //muutujad võimalike veateadetega, ehk, et kui jätad midagi sisestamata
   $name_error = null;
   $surname_error = null;
   $birth_month_error = null;
@@ -46,11 +46,30 @@
 		$gender_error = "Palun märgi sugu!";
 	}
 
-		//email ehk kasutajatunnus
+	// kuupäeva kontroll
+	if(!empty($_POST["birth_day_input"])) {
+		$birth_day = intval($_POST["birth_day_input"]);
+	} else {
+		$birth_day_error = "Palun vali sünnikuupäev!";
+	}
+
+	if(!empty($_POST["birth_month_input"])) {
+		$birth_month = intval($_POST["birth_month_input"]);
+	} else {
+		$birth_month_error = "Palun vali sünnikuu!";
+	}
+
+	if(!empty($_POST["birth_year_input"])) {
+		$birth_year = intval($_POST["birth_year_input"]);
+	} else {
+		$birth_year_error = "Palun vali sünniaasta!";
+	}
+
+	//email ehk kasutajatunnus
 	
 	  if (isset($_POST["email"]) and !empty($_POST["email"])){
 		$email = test_input($_POST["email"]);
-		$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+		$email = filter_var($email, FILTER_VALIDATE_EMAIL); //kontrollib, kas on päriselt email ka
 		if ($email === false) {
 			$email_error = "Palun sisesta korrektne e-postiaadress!";
 		}
@@ -82,8 +101,8 @@
 	  <input name="surname_input" type="text" value="<?php echo $surname; ?>"><span><?php echo $surname_error; ?></span>
 	  <br>
 	  
-	  <input type="radio" name="gender_input" value="2" <?php if($gender == "2"){		echo " checked";} ?>><label>Naine</label>
-	  <input type="radio" name="gender_input" value="1" <?php if($gender == "1"){		echo " checked";} ?>><label>Mees</label><br>
+	  <input type="radio" name="gender_input" value="2" <?php if($gender == "2"){ echo " checked";} ?>><label>Naine</label>
+	  <input type="radio" name="gender_input" value="1" <?php if($gender == "1"){ echo " checked";} ?>><label>Mees</label><br>
 	  <span><?php echo $gender_error; ?></span>
 	  <br>
 	  
