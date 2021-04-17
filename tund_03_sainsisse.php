@@ -1,5 +1,6 @@
 <?php
-	session_start();
+	require_once "usesession.php";
+	/* session_start();
 	// kas on sisse loginud
 	if(!isset($_SESSION["user_id"])) {
 		header("Location: kodutoo_01.php");
@@ -8,7 +9,7 @@
 	if(isset($_GET["logout"])) {
 		session_destroy();
 		header("Location: kodutoo_01.php");
-	}
+	} */
 	
 	
 ?>
