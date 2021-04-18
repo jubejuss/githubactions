@@ -16,8 +16,11 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
-	<meta charset="utf-8">
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Veebirakendused ja nende loomine 2021</title>
+	<link rel="stylesheet" href="assets/css/starter.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 	<h1>Sisseloginud kasutaja</h1>

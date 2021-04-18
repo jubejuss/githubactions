@@ -9,7 +9,7 @@
   	SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
 
 	// kolmanda tunni lisa
-	require_once "../../conf.php";
+	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
 	require_once "fnc_general.php";
 	require_once "fnc_user.php";
 
@@ -98,6 +98,7 @@
 	$randomphotofunc = array_rand($picfiles,3); 
 	//--------------------------------------KODUTÖÖ-ÜL-LÕPP----------------------------------------------// 
 
+	// 3 tunni lisandused
 	// sisselogimine
 	$notice = null;
 	$email = null;
@@ -105,7 +106,6 @@
 	$password_error = null;
 	if(isset($_POST["login_submit"])) {
 		//kontrollime, kas email ja password on olemas
-
 		$notice = sign_in($_POST["email_input"], $_POST["password_input"]);
 	}
 

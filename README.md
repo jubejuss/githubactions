@@ -76,8 +76,26 @@ Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs
 
 `npm run watch` kui tahad, et broswseris muutusi näeks
 
+## DDEV
+
+Kohaliku dockeri käivitamiseks on kasutusel DDEV.
+
+- ddev start
+- PhPMyadminni leiab käsuga ddev describe
+
 ## Selle repo kasutamine
 
 Git clone  
 npm install
 
+## Kasutusel oleval muutujad
+
+$stmt – statement
+
+## PHP funktsioonid
+
+password_verify
+execute
+bind_result
+bind_param
+close

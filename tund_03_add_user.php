@@ -4,7 +4,7 @@
 	ini_set('display_errors', TRUE);
 	ini_set('display_startup_errors', TRUE);
 
-  require_once "../../conf.php";
+	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
   require_once "fnc_general.php"; // see on mul olemas, see on eelmise tunni teema, vt järele
   require_once "fnc_user.php";
     
@@ -129,8 +129,11 @@
 <!DOCTYPE html>
 <html lang="et">
   <head>
-    <meta charset="utf-8">
-	<title>Veebirakendused ja nende loomine 2020</title>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Veebirakendused ja nende loomine 2021</title>
+	<link rel="stylesheet" href="assets/css/starter.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
     <h1>Loo endale kasutajakonto</h1>
@@ -202,7 +205,7 @@
 	  <input name="user_data_submit" type="submit" value="Loo kasutaja"><span><?php echo $notice; ?></span>
 	</form>
 	<hr>
-	<p>Tagasi <a href="page.php">avalehele</a></p>
+	<p>Tagasi <a href="tund_03_sainsisse.php">avalehele</a></p>
     <hr>
   </body>
 </html>

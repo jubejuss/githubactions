@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
 
-	require_once "../../conf.php";
+	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
 
 	function read_news() {
 		// echo $news_title .$news_content .$news_author; // kuvan lihtsalt

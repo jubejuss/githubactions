@@ -5,7 +5,7 @@
   //kas on sisse loginud
   if(!isset($_SESSION["userid"])){
 	//jõuga suunatakse sisselogimise lehele
-	header("Location: page.php");
+	header("Location: kodutoo_01.php");
 	exit();
   }
   
@@ -14,6 +14,6 @@
 	//lõpetame sessiooni
 	session_destroy();
 	//jõuga suunatakse sisselogimise lehele
-	header("Location: page.php");
+	header("Location: kodutoo_01.php");
 	exit();
   }

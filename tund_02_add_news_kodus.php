@@ -4,7 +4,7 @@
 	ini_set('display_errors', TRUE);
 	ini_set('display_startup_errors', TRUE);
 
-	require_once "../../conf.php";
+	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
 	// echo $server_host; // kui tahan testida, et kas on ühendus olemas.
 	$news_input_error = null;
 
