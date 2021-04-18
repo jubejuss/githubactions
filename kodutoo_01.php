@@ -8,7 +8,7 @@
 	require("classes/SessionManager.class.php");
   	SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
 
-	// kolmanda tunni lisa
+	// kolmandas tunnis lisatud
 	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
 	require_once "fnc_general.php";
 	require_once "fnc_user.php";
