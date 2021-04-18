@@ -3,5 +3,5 @@
 //require_once "conf.php";    //kui kasutad lokaalses serveris, siis aadressiks:
                             //"conf.php",
 require_once "../../conf.php"; 
-                            //sest asub siinsamas root kataloogis kui tigus, siis on
+                            //sest asub siinsamas root kataloogis kui tigus, siis on seal asuv
                             //"../../conf.php"
