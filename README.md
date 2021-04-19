@@ -80,6 +80,9 @@ Starter: [https://github.com/twbs/bootstrap-npm-starter](https://github.com/twbs
 
 Kohaliku dockeri käivitamiseks on kasutusel DDEV.
 
+Kui ddev loomata, siis `ddev config`  
+Seejärel juba:
+
 - ddev start
 - PhPMyadminni leiab käsuga ddev describe
 

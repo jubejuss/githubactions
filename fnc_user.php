@@ -36,7 +36,7 @@
                 $_SESSION["user_id"] = $id_from_db;
                 $stmt -> close();
 		        $conn -> close();
-                header("Locaton: tund_03_sainsisse.php");
+                header("Location: tund_03_sainsisse.php");
                 exit();
             }
         }

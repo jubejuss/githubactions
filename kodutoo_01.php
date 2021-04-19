@@ -4,9 +4,24 @@
 	ini_set('display_errors', TRUE);
 	ini_set('display_startup_errors', TRUE);
 
-	//session_start();
-	require("classes/SessionManager.class.php");
-  	SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
+	session_start();
+	//kas on sisse loginud
+	/*if(!isset($_SESSION["user_id"])){
+		//jõuga suunatakse sisselogimise lehele
+		header("Location: kodutoo_01.php");
+		exit();
+	  }
+	  
+	  //logime välja
+	  if(isset($_GET["logout"])){
+		//lõpetame sessiooni
+		session_destroy();
+		//jõuga suunatakse sisselogimise lehele
+		header("Location: kodutoo_01.php");
+		exit();
+	  }
+	/*require("classes/SessionManager.class.php");
+  	SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");*/
 
 	// kolmandas tunnis lisatud
 	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
