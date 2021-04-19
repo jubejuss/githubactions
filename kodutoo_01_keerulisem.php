@@ -55,7 +55,7 @@
 	        }
 	    }
 	}
-	//--------------------------------------KODUTÖÖ-ÜL-3-------------------------------------------------//
+	//--------------------------------------KODUTÖÖ-ÜL-3--------------------------------------------------//
 	$photocount = count($picfiles);                                         // loeme üles piltide arvu
 	$RandImgArray = [];                                                     // tekitan listi/massiivi, kuhu kogun alljärgnevalt 3 random pilti
 	                                                                        // kasutame do while funktsiooni
