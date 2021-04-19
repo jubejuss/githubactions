@@ -47,6 +47,8 @@ Tasub tähelepanu pöörata, et see host võib tavajuhul olla ka veebiaadress.
 Siin näites toodud `key: ${{ secrets.SSH_GIT_SECRET }}`ongi see nimi, mille palusin ülal meelde jätta.
 Scripti jaotuses muuda andmed vastavalt sellele, kus projekt serveris asub.
 
+Võimalik ka, et peab ssh-ga kõigepealt git clone tegema.
+
 Kokkuvõttes panime me serveri ja Githubi SSH abil suhtlema ja lisasime serverisse vastava skripti.
 
 ## Bootstrap
