@@ -40,7 +40,6 @@
                 exit();
             }
         }
-
         $stmt -> close();
 		$conn -> close();
         return $notice;
