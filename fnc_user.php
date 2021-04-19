@@ -29,7 +29,7 @@
         $stmt -> execute();
         // kui leiti
         if($stmt -> fetch()) {
-            //kas parool klapibz
+            //kas parool klapib
             if(password_verify($password, $password_from_db)) {
                 // olemegi sisse loginud
                 $notice = 1;
