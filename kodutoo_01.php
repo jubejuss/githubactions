@@ -5,7 +5,7 @@
 	ini_set('display_startup_errors', TRUE);
 
 	session_start();
-	//kas on sisse loginud
+	//kas on sisse loginud 
 	/*if(!isset($_SESSION["user_id"])){
 		//jõuga suunatakse sisselogimise lehele
 		header("Location: kodutoo_01.php");
