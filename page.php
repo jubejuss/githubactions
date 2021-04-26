@@ -4,24 +4,24 @@
 	ini_set('display_errors', TRUE);
 	ini_set('display_startup_errors', TRUE);
 
-	session_start();
-	//kas on sisse loginud 
-	/*if(!isset($_SESSION["user_id"])){
-		//jõuga suunatakse sisselogimise lehele
-		header("Location: kodutoo_01.php");
-		exit();
-	  }
-	  
-	  //logime välja
-	  if(isset($_GET["logout"])){
-		//lõpetame sessiooni
-		session_destroy();
-		//jõuga suunatakse sisselogimise lehele
-		header("Location: kodutoo_01.php");
-		exit();
-	  }
-	/*require("classes/SessionManager.class.php");
-  	SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");*/
+	//session_start();
+	require("classes/SessionManager.class.php");
+	//SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
+	SessionManager::sessionStart("vr", 0, "/", "localhost");
+
+	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
+    require_once "fnc_general.php"; // see on mul olemas, see on eelmise tunni teema, vt järele
+    require_once "fnc_user.php";
+	//sisselogimine
+	$notice = 0;
+	$email = 0;
+	$email_error = 0;
+	$password_error = 0;
+	if(isset($_POST["login_submit"])) {
+		// kontrollime, kas email ja password on olemas ja siin peaks tegema ka seda, et kas on korrektselt sisestatud.
+
+		$notice = sign_in($_POST["email_input"], $_POST["password_input"]);
+	}
 
 	// kolmandas tunnis lisatud
 	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed

@@ -1,12 +1,12 @@
 <?php
+
   require("classes/SessionManager.class.php");
-  //SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
-  SessionManager::sessionStart("vr", 0, "/", "localhost", false);
+  SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
   
   //kas on sisse loginud
   if(!isset($_SESSION["user_id"])){
 	//jõuga suunatakse sisselogimise lehele
-	header("Location: page.php");
+	header("Location: kodutoo_01.php");
 	exit();
   }
   
@@ -15,6 +15,6 @@
 	//lõpetame sessiooni
 	session_destroy();
 	//jõuga suunatakse sisselogimise lehele
-	header("Location: page.php");
+	header("Location: kodutoo_01.php");
 	exit();
   }
