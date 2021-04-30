@@ -5,8 +5,7 @@
 	
 	//session_start();
 	require("../classes/SessionManager.class.php");
-	SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
-	//SessionManager::sessionStart("vr", 0, "/", "localhost:50701", false);
+	require("sessionparameters.php");
 
 	include('../dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
     require_once "../fnc_general.php"; // see on mul olemas, see on eelmise tunni teema, vt järele

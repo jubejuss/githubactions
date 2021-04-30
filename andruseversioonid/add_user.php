@@ -1,11 +1,7 @@
 <?php
-	/* error_reporting(E_ALL);
-	ini_set('display_errors', TRUE);
-	ini_set('display_startup_errors', TRUE); */
-
-	include('../dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
-    require_once "../fnc_general.php"; // see on mul olemas, see on eelmise tunni teema, vt järele
-    require_once "fnc_user.php";
+  include('../dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
+  require_once "fnc_general.php";
+  require_once "fnc_user.php";
     
   $notice = null;
   $name = null;
@@ -18,7 +14,7 @@
   $birth_date = null;
   $month_names_et = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni","juuli", "august", "september", "oktoober", "november", "detsember"];
   
-  //muutujad võimalike veateadetega, ehk, et kui jätad midagi sisestamata
+  //muutujad võimalike veateadetega
   $name_error = null;
   $surname_error = null;
   $birth_month_error = null;
@@ -51,28 +47,28 @@
 		$gender_error = "Palun märgi sugu!";
 	}
 
-	// kuupäeva kontroll
-	if(!empty($_POST["birth_day_input"])) {
+	//kontrollime kuupäeva sisestust
+	if(!empty($_POST["birth_day_input"])){
 		$birth_day = intval($_POST["birth_day_input"]);
 	} else {
 		$birth_day_error = "Palun vali sünnikuupäev!";
 	}
-
-	if(!empty($_POST["birth_month_input"])) {
+	
+	if(!empty($_POST["birth_month_input"])){
 		$birth_month = intval($_POST["birth_month_input"]);
 	} else {
 		$birth_month_error = "Palun vali sünnikuu!";
 	}
-
-	if(!empty($_POST["birth_year_input"])) {
+	
+	if(!empty($_POST["birth_year_input"])){
 		$birth_year = intval($_POST["birth_year_input"]);
 	} else {
 		$birth_year_error = "Palun vali sünniaasta!";
 	}
-
-	// kuupäeva valiidsus ehk reaalsuse kontroll.  Kas selline kuupäev on kalendris olemas ka.
-	if(empty($birth_day_error) and empty($birth_month_error) and empty($birth_year_error)) {
-		if(checkdate($birth_month, $birth_day, $birth_year)) {
+	
+	//kuupäeva valiidsus ehk reaalsuse kontroll
+	if(empty($birth_day_error) and empty($birth_month_error) and empty($birth_year_error)){
+		if(checkdate($birth_month, $birth_day, $birth_year)){
 			$temp_date = new DateTime($birth_year ."-" .$birth_month ."-" .$birth_day);
 			$birth_date = $temp_date->format("Y-m-d");
 		} else {
@@ -81,45 +77,46 @@
 	}
 
 	//email ehk kasutajatunnus
-	
-	  if (isset($_POST["email"]) and !empty($_POST["email"])){
+
+	if (isset($_POST["email"]) and !empty($_POST["email"])){
 		$email = test_input($_POST["email"]);
-		$email = filter_var($email, FILTER_VALIDATE_EMAIL); //kontrollib, kas on päriselt email ka
+		$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 		if ($email === false) {
 			$email_error = "Palun sisesta korrektne e-postiaadress!";
 		}
-	  } else {
-		  $email_error = "Palun sisesta e-postiaadress!";
-	  }
-
-	// Parooli kontroll
-	if(!empty($_POST["password_input"])) {
-		if(strlen($_POST["password_input"])<8) { // kontrollime sõna pikkust – string lenght alla 8
+	} else {
+		$email_error = "Palun sisesta e-postiaadress!";
+	}
+	
+	//parooli ehk salasõna kontroll
+	if(!empty($_POST["password_input"])){
+		if(strlen($_POST["password_input"])<8){
 			$password_error = "Liiga lühike salasõna!";
 		}
 	} else {
 		$password_error = "Palun sisestage salasõna!";
 	}
-
-	if(empty($_POST["confirmpassword_input"])) {
+	
+	if(empty($_POST["confirmpassword_input"])){
 		$confirm_password_error = "Palun sisestage salasõna kaks korda!";
 	} else {
-		if($_POST["confirmpassword_input"] != $_POST["password_input"]) { // ehk kui ei võrdu need kaks sisestatud parameetrit
+		if($_POST["confirmpassword_input"] != $_POST["password_input"]){
 			$confirm_password_error = "Sisestatud salasõnad ei ole ühesugused!";
 		}
 	}
 	
-	//kui vigu pole siis salvestame
-	if(empty($name_error) and empty($surname_error) and empty($birth_month_error) and empty($birth_year_error) and empty($birth_day_error) and empty($birth_date_error) and empty($gender_error) and empty($email_error) and empty($password_error) and empty($confirm_password_error)) {
-		// salvestus ehk kasutaja loomine
+	//kui vigu pole, siis salvestame
+	if(empty($name_error) and empty($surname_error) and empty($birth_month_error) and empty($birth_year_error) and empty($birth_day_error)and empty($birth_date_error) and empty($gender_error) and empty($email_error) and empty($password_error) and empty($confirm_password_error)){
+		//salvestus ehk kasutaja loomine
 		$notice = sign_up($name, $surname, $gender, $birth_date, $email, $_POST["password_input"]);
-        // allpool kontrollitakse fnc_user.php failist tulevat
-		if($notice == 1) {
+		if($notice == 1){
 			$notice = "Uus kasutaja on edukalt loodud!";
 		} else {
 			$notice = "Kasutaja loomisel tekkis tehniline tõrge!";
 		}
 	}
+	
+	
 	
   } //kui on nuppu vajutatud
   
@@ -129,11 +126,8 @@
 <!DOCTYPE html>
 <html lang="et">
   <head>
-  <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
 	<title>Veebirakendused ja nende loomine 2021</title>
-	<link rel="stylesheet" href="assets/css/starter.css">
-	<link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
     <h1>Loo endale kasutajakonto</h1>
@@ -147,8 +141,8 @@
 	  <input name="surname_input" type="text" value="<?php echo $surname; ?>"><span><?php echo $surname_error; ?></span>
 	  <br>
 	  
-	  <input type="radio" name="gender_input" value="2" <?php if($gender == "2"){ echo " checked";} ?>><label>Naine</label>
-	  <input type="radio" name="gender_input" value="1" <?php if($gender == "1"){ echo " checked";} ?>><label>Mees</label><br>
+	  <input type="radio" name="gender_input" value="2" <?php if($gender == "2"){echo " checked";} ?>><label>Naine</label>
+	  <input type="radio" name="gender_input" value="1" <?php if($gender == "1"){echo " checked";} ?>><label>Mees</label><br>
 	  <span><?php echo $gender_error; ?></span>
 	  <br>
 	  

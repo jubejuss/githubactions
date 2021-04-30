@@ -54,7 +54,7 @@
 	<h1>Uudiste lugemine</h1>
 	<p>See leht on valminud õppetöö raames!</p>
 	<hr>
-	<form method="POST"action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		<label for="news_limit_input">Mitu uudist korraga näidata: </label>
 		<input id="news_limit_input" name="news_limit_input" type="number" min="1" max="10" value="<?php echo $news_limit; ?>">
 		<input id="news_limit_submit" name="news_limit_submit" type="submit" value="Rakenda">
