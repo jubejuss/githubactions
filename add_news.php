@@ -32,7 +32,7 @@
 		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		// määrame suhtluseks kodeeringu
 		// valmistan ette SQL käsu
-		$stmt = $conn -> prepare("INSERT INTO v21_news (vr21_news_title, vr21_news_content, vr21_news_author) VALUES (?,?,?)"); 
+		$stmt = $conn -> prepare("INSERT INTO vr21_news (vr21_news_title, vr21_news_content, vr21_news_author) VALUES (?,?,?)"); 
 		echo $conn -> error;
 		// seome küsimärgid päris andmetega. i - integer, s - string, d - decimal
 		$stmt -> bind_param("sss", $news_title, $news_content, $news_author);
@@ -51,30 +51,35 @@
 	<link rel="stylesheet" href="assets/css/starter.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="container bg-gradient-secondary text-bright">
-	<h1>Uudiste lisamine</h1>
+<body class="bg-gradient-secondary text-bright">
+    <header>
+        <?php include("page_details/navbar.php"); ?>
+    </header>
+    <main>
+        <div class="container bg-gradient-secondary text-bright">
+			<h1>Uudiste lisamine</h1>
+			<form method="POST">
+				<label for="news_title_input">Uudise pealkiri</label>
+				<br>
+				<input type="text" id="news_title_input" name="news_title_input" placeholder="Pealkiri" value="<?php echo isset($_POST["news_title_input"]) ? $_POST["news_title_input"] : "" ?>">
+				<br>
+				<label for="news_content_input">Uudise tekst</label>
+				<br>
+				<textarea id="news_content_input" name="news_content_input" placeholder="Uudise tekst" rows="6" cols="40"><?php echo isset($_POST["news_content_input"]) ? htmlspecialchars($_POST["news_content_input"]) : ""; ?></textarea>
+				<br>
+				<label for="news_author_input">Uudise lisaja nimi</label>
+				<br>
+				<input type="text" id="news_author_input" name="news_author_input" placeholder="Nimi" value="<?php echo isset($_POST["news_author_input"]) ? $_POST["news_author_input"] : "" ?>">
+				<br>
+				<input type="submit" name="news_submit" value="Salvesta uudis">
+			</form>
+			<p><?php echo $news_input_error; ?></p>
 
-	<form method="POST">
-		<label for="news_title_input">Uudise pealkiri</label>
-		<br>
-		<input type="text" id="news_title_input" name="news_title_input" placeholder="Pealkiri" value="<?php echo isset($_POST["news_title_input"]) ? $_POST["news_title_input"] : "" ?>">
-		<br>
-		<label for="news_content_input">Uudise tekst</label>
-		<br>
-		<textarea id="news_content_input" name="news_content_input" placeholder="Uudise tekst" rows="6" cols="40"><?php echo isset($_POST["news_content_input"]) ? htmlspecialchars($_POST["news_content_input"]) : ""; ?></textarea>
-		<br>
-		<label for="news_author_input">Uudise lisaja nimi</label>
-		<br>
-		<input type="text" id="news_author_input" name="news_author_input" placeholder="Nimi" value="<?php echo isset($_POST["news_author_input"]) ? $_POST["news_author_input"] : "" ?>">
-		<br>
-		<input type="submit" name="news_submit" value="Salvesta uudis">
-	</form>
-	<p><?php echo $news_input_error; ?></p>
-
-<div>
-	<a href="./">Aine kodulehele</a>
-</div>
-	<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script type="module" src="assets/js/starter.js"></script>  
+			<div>
+				<a href="./">Aine kodulehele</a>
+			</div>
+		</div>
+    </main>
+	<?php require("page_details/scripts.php") ?>  
 </body>
 </html>

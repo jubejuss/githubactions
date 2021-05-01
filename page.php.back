@@ -112,81 +112,74 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/starter.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Veebirakendused ja nende loomine 2021</title>
+	<link rel="stylesheet" href="assets/css/starter.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
-    <title>PHP õppeleht</title>
 </head>
-<body class="bg-gradient-secondary text-bright">
-    <header>
-        <?php include("page_details/navbar.php"); ?>
-    </header>
-    <main>
-        <div class="container bg-gradient-secondary text-bright">
-			<h1>
-				<?php
-					echo $pagetitle;
-				?>
-			</h1>
-			<h2>
-			<?php
-				echo $myname;
-			?>
-			</h2>
-			<h3>Kolmanda tunni lisandused</h3>
+<body class="container bg-gradient-secondary text-bright">
+	<h1>
+	<?php
+		echo $pagetitle;
+	?>
+	</h1>
+	<h2>
+	<?php
+		echo $myname;
+	?>
+	</h2>
+	<h3>Kolmanda tunni lisandused</h3>
 
-			<h4>Logi sisse</h4>
-			<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-				<label>E-mail (kasutajatunnus):</label><br>
-				<input class="mb-2" type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
-				<label>Salasõna:</label><br>
-				<input class="mb-2" name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
-				<input class="mb-2" name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice; ?></span>
-			</form>
-			<p> Loo endale <a href="add_user.php">kasutajakonto</a> </p>
+	<h4>Logi sisse</h4>
+	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+		<label>E-mail (kasutajatunnus):</label><br>
+		<input class="mb-2" type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
+		<label>Salasõna:</label><br>
+		<input class="mb-2" name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
+		<input class="mb-2" name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice; ?></span>
+	</form>
+	<p> Loo endale <a href="add_user.php">kasutajakonto</a> </p>
 
-			<h3>Kodune ülesanne</h3>
-			<p>Kodune ülesanne on lahendatud nii keerulisemalt kui lihtsamalt.</p>
-			<p>Lahenduste leidmisel on kasutatud grupikaaslaste abi.</p>
-			<p class="font-weight-bold"><a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01_lihtsam.php">Lihtsama versiooni kood</a></p>
-			<p class="font-weight-bold"><a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01_keerulisem.php">Keerulisema versiooni kood</a></p>
-			<p class="font-weight-bold"><a href="https://github.com/jubejuss/githubactions/blob/main/page.php">Siinse versiooni kood (mõlemad koos)</a></p>
-			<?php
-				echo $timehtml;
-				echo $semesterdurhtml;
-				echo $semesterprogress;
-				echo "<p>";
-				echo $iftoday;
-				echo $semesterprogress_ver2;
-				echo "</p>";
-				echo $todaysweekdayhtml;
-				echo $todayname;
-			?>
+	<h3>Kodune ülesanne</h3>
+	<p>Kodune ülesanne on lahendatud nii keerulisemalt kui lihtsamalt.</p>
+	<p>Lahenduste leidmisel on kasutatud grupikaaslaste abi.</p>
+	<p class="font-weight-bold"><a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01_lihtsam.php">Lihtsama versiooni kood</a></p>
+	<p class="font-weight-bold"><a href="https://github.com/jubejuss/githubactions/blob/main/kodutoo_01_keerulisem.php">Keerulisema versiooni kood</a></p>
+	<p class="font-weight-bold"><a href="https://github.com/jubejuss/githubactions/blob/main/page.php">Siinse versiooni kood (mõlemad koos)</a></p>
+	<?php
+		echo $timehtml;
+		echo $semesterdurhtml;
+		echo $semesterprogress;
+		echo "<p>";
+		echo $iftoday;
+		echo $semesterprogress_ver2;
+		echo "</p>";
+		echo $todaysweekdayhtml;
+		echo $todayname;
+	?>
 
-			<div class="row">
-				<h2 class="col-12">Pildid keerulisel moel</h2>
-				<div class="d-md-flex">
-					<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto; ?>" alt="suvapilt"> <!-- echo järel ütlen, mis kataloogis, mis pilt asub -->
-					<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto2; ?>" alt="suvapilt">
-					<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto3; ?>" alt="suvapilt">
-				</div>
-				<h2 class="col-12">Pildid funktsiooniga</h2>
-				<div class="d-md-flex">
-					<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[0]]; ?>" alt="suvapilt">
-					<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[1]]; ?>" alt="suvapilt">
-					<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[2]]; ?>" alt="suvapilt">
-				</div>
-				<a class="col-12" href="https://github.com/jubejuss/githubactions">Vaata koodi Githubist</a>
-			</div>
+	<div class="row">
+		<h2 class="col-12">Pildid keerulisel moel</h2>
+		<div class="d-md-flex">
+			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto; ?>" alt="suvapilt"> <!-- echo järel ütlen, mis kataloogis, mis pilt asub -->
+			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto2; ?>" alt="suvapilt">
+			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$randomphoto3; ?>" alt="suvapilt">
+		</div>
+		<h2 class="col-12">Pildid funktsiooniga</h2>
+		<div class="d-md-flex">
+			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[0]]; ?>" alt="suvapilt">
+			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[1]]; ?>" alt="suvapilt">
+			<img class="img-fluid col-md-4 mb-3" src="<?php echo $picsdir .$picfiles[$randomphotofunc[2]]; ?>" alt="suvapilt">
+		</div>
+		<a class="col-12" href="https://github.com/jubejuss/githubactions">Vaata koodi Githubist</a>
+	</div>
 
-			<div>
-				<a href="./">Aine kodulehele</a>
-				<p>Juhhei</p>
-			</div>
-        </div>
-    </main>
-	<?php require("page_details/scripts.php") ?>
+<div>
+	<a href="./">Aine kodulehele</a>
+	<p>Juhhei</p>
+</div>
+	<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script type="module" src="assets/js/starter.js"></script>  
 </body>
 </html>

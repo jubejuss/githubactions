@@ -119,7 +119,6 @@
 <div>
 	<a href="./">Aine kodulehele</a>
 </div>
-	<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script type="module" src="assets/js/starter.js"></script>  
+<?php require("page_details/scripts.php") ?> 
 </body>
 </html>

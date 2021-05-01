@@ -20,7 +20,7 @@ ini_set('display_startup_errors', TRUE);
 		// $conn = set_charset("utf-8");
 		// valmistan ette SQL käsu
 		// kodutöö
-		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author, vr21_news_added FROM v21_news ORDER BY vr21_news_id DESC LIMIT ?");
+		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author, vr21_news_added FROM vr21_news ORDER BY vr21_news_id DESC LIMIT ?");
 		echo $conn -> error;
 
 		
@@ -61,18 +61,26 @@ ini_set('display_startup_errors', TRUE);
 	<link rel="stylesheet" href="assets/css/starter.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="container bg-gradient-secondary text-bright">
-	<h1>Uudiste näitamine</h1>
-	<form method="POST"> <!-- Uudiste arvu määramise vorm -->
-	<input type="number" min="1" max="10" value="3" name="newsCount">
-	<input type="submit" name="count_submit" value="Kuva uudised">
-	</form>
-	<?php echo $news_html; ?>
+<body class="bg-gradient-secondary text-bright">
+    <header>
+        <?php include("page_details/navbar.php"); ?>
+    </header>
+    <main>
+        <div class="container bg-gradient-secondary text-bright">
+			<h1>Uudiste näitamine</h1>
+			<form method="POST"> <!-- Uudiste arvu määramise vorm -->
+			<input type="number" min="1" max="10" value="3" name="newsCount">
+			<input type="submit" name="count_submit" value="Kuva uudised">
+			</form>
+			<?php echo $news_html; ?>
 
-<div>
-	<a href="./">Aine kodulehele</a>
-</div>
-	<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script type="module" src="assets/js/starter.js"></script>  
+			<div>
+				<a href="./">Aine kodulehele</a>
+			</div>
+			<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+			<script type="module" src="assets/js/starter.js"></script>  
+		</div>
+    </main>
+    <?php require("page_details/scripts.php") ?>
 </body>
 </html>

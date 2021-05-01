@@ -123,84 +123,91 @@
 
 <!DOCTYPE html>
 <html lang="et">
-  <head>
-  <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Veebirakendused ja nende loomine 2021</title>
-	<link rel="stylesheet" href="assets/css/starter.css">
-	<link rel="stylesheet" href="assets/css/styles.css">
-  </head>
-  <body class="container bg-gradient-secondary text-bright">
-    <h1>Loo endale kasutajakonto</h1>
-	<p>See leht on valminud õppetöö raames!</p>
-	<hr>
-	
-	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	  <label>Eesnimi:</label><br>
-	  <input name="first_name_input" type="text" value="<?php echo $name; ?>"><span><?php echo $name_error; ?></span><br>
-      <label>Perekonnanimi:</label><br>
-	  <input name="surname_input" type="text" value="<?php echo $surname; ?>"><span><?php echo $surname_error; ?></span>
-	  <br>
-	  
-	  <input type="radio" name="gender_input" value="2" <?php if($gender == "2"){ echo " checked";} ?>><label>Naine</label>
-	  <input type="radio" name="gender_input" value="1" <?php if($gender == "1"){ echo " checked";} ?>><label>Mees</label><br>
-	  <span><?php echo $gender_error; ?></span>
-	  <br>
-	  
-	  <label>Sünnikuupäev: </label>
-	  <?php
-	    //sünnikuupäev
-	    echo '<select name="birth_day_input">' ."\n";
-		echo "\t \t" .'<option value="" selected disabled>päev</option>' ."\n";
-		for($i = 1; $i < 32; $i ++){
-			echo "\t \t" .'<option value="' .$i .'"';
-			if($i == $birth_day){
-				echo " selected";
-			}
-			echo ">" .$i ."</option> \n";
-		}
-		echo "\t </select> \n";
-	  ?>
-	  	  <label>Sünnikuu: </label>
-	  <?php
-	    echo '<select name="birth_month_input">' ."\n";
-		echo "\t \t" .'<option value="" selected disabled>kuu</option>' ."\n";
-		for ($i = 1; $i < 13; $i ++){
-			echo "\t \t" .'<option value="' .$i .'"';
-			if ($i == $birth_month){
-				echo " selected ";
-			}
-			echo ">" .$month_names_et[$i - 1] ."</option> \n";
-		}
-		echo "</select> \n";
-	  ?>
-	  <label>Sünniaasta: </label>
-	  <?php
-	    echo '<select name="birth_year_input">' ."\n";
-		echo "\t \t" .'<option value="" selected disabled>aasta</option>' ."\n";
-		for ($i = date("Y") - 15; $i >= date("Y") - 110; $i --){
-			echo "\t \t" .'<option value="' .$i .'"';
-			if ($i == $birth_year){
-				echo " selected ";
-			}
-			echo ">" .$i ."</option> \n";
-		}
-		echo "</select> \n";
-	  ?>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Veebirakendused ja nende loomine 2021</title>
+<link rel="stylesheet" href="assets/css/starter.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-gradient-secondary text-bright">
+    <header>
+        <?php include("page_details/navbar.php"); ?>
+    </header>
+    <main>
+        <div class="container bg-gradient-secondary text-bright">
+			<h1>Loo endale kasutajakonto</h1>
+			<p>See leht on valminud õppetöö raames!</p>
+			<hr>
+			<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<label>Eesnimi:</label><br>
+				<input name="first_name_input" type="text" value="<?php echo $name; ?>"><span><?php echo $name_error; ?></span><br>
+				<label>Perekonnanimi:</label><br>
+				<input name="surname_input" type="text" value="<?php echo $surname; ?>"><span><?php echo $surname_error; ?></span>
+				<br>
+				
+				<input type="radio" name="gender_input" value="2" <?php if($gender == "2"){ echo " checked";} ?>><label>Naine</label>
+				<input type="radio" name="gender_input" value="1" <?php if($gender == "1"){ echo " checked";} ?>><label>Mees</label><br>
+				<span><?php echo $gender_error; ?></span>
+				<br>
+				
+				<label>Sünnikuupäev: </label>
+				<?php
+				//sünnikuupäev
+				echo '<select name="birth_day_input">' ."\n";
+				echo "\t \t" .'<option value="" selected disabled>päev</option>' ."\n";
+				for($i = 1; $i < 32; $i ++){
+					echo "\t \t" .'<option value="' .$i .'"';
+					if($i == $birth_day){
+						echo " selected";
+					}
+					echo ">" .$i ."</option> \n";
+				}
+				echo "\t </select> \n";
+				?>
+					<label>Sünnikuu: </label>
+				<?php
+				echo '<select name="birth_month_input">' ."\n";
+				echo "\t \t" .'<option value="" selected disabled>kuu</option>' ."\n";
+				for ($i = 1; $i < 13; $i ++){
+					echo "\t \t" .'<option value="' .$i .'"';
+					if ($i == $birth_month){
+						echo " selected ";
+					}
+					echo ">" .$month_names_et[$i - 1] ."</option> \n";
+				}
+				echo "</select> \n";
+				?>
+				<label>Sünniaasta: </label>
+				<?php
+				echo '<select name="birth_year_input">' ."\n";
+				echo "\t \t" .'<option value="" selected disabled>aasta</option>' ."\n";
+				for ($i = date("Y") - 15; $i >= date("Y") - 110; $i --){
+					echo "\t \t" .'<option value="' .$i .'"';
+					if ($i == $birth_year){
+						echo " selected ";
+					}
+					echo ">" .$i ."</option> \n";
+				}
+				echo "</select> \n";
+				?>
 
-	  <span><?php echo $birth_date_error ." " .$birth_day_error ." " .$birth_month_error ." " .$birth_year_error; ?></span>
-	  
-	  <br>
-	  <label>E-mail (kasutajatunnus):</label><br>
-	  <input type="email" name="email" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
-	  <label>Salasõna (min 8 tähemärki):</label><br>
-	  <input name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
-	  <label>Korrake salasõna:</label><br>
-	  <input name="confirmpassword_input" type="password"><span><?php echo $confirm_password_error; ?></span><br>
-	  <input name="user_data_submit" type="submit" value="Loo kasutaja"><span><?php echo $notice; ?></span>
-	</form>
-	<hr>
-	<p>Tagasi <a href="page.php">avalehele</a></p>
-    <hr>
-  </body>
+				<span><?php echo $birth_date_error ." " .$birth_day_error ." " .$birth_month_error ." " .$birth_year_error; ?></span>
+				
+				<br>
+				<label>E-mail (kasutajatunnus):</label><br>
+				<input type="email" name="email" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
+				<label>Salasõna (min 8 tähemärki):</label><br>
+				<input name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
+				<label>Korrake salasõna:</label><br>
+				<input name="confirmpassword_input" type="password"><span><?php echo $confirm_password_error; ?></span><br>
+				<input name="user_data_submit" type="submit" value="Loo kasutaja"><span><?php echo $notice; ?></span>
+			</form>
+			<hr>
+			<p>Tagasi <a href="page.php">avalehele</a></p>
+			<hr>
+		</div>
+    </main>
+	<?php require("page_details/scripts.php") ?>
+</body>
 </html>
