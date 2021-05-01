@@ -4,7 +4,8 @@
 	ini_set('display_startup_errors', TRUE);
 	//session_start();
 	require("classes/SessionManager.class.php");
-	SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
+	require_once("local_remote_variables.php");
+	//SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
 	//SessionManager::sessionStart("vr", 0, "/", "localhost", false);
 	
 	require_once "dbconf.php"; // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
