@@ -1,40 +1,12 @@
 <?php
 	//session_start();
 	require("classes/SessionManager.class.php");
-	//SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
-	SessionManager::sessionStart("vr", 0, "/", "localhost", false);
+	SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
+	//SessionManager::sessionStart("vr", 0, "/", "localhost", false);
 	
-	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
+	require_once "dbconf.php"; // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
 	//require_once "fnc_general.php";
 	require_once "fnc_user.php";
-
-	/* error_reporting(E_ALL);
-	ini_set('display_errors', TRUE);
-	ini_set('display_startup_errors', TRUE);
-
-	//session_start();
-	require("classes/SessionManager.class.php");
-	//SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
-	SessionManager::sessionStart("vr", 0, "/", "localhost");
-
-	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
-    require_once "fnc_general.php"; // see on mul olemas, see on eelmise tunni teema, vt järele
-    require_once "fnc_user.php";
-	//sisselogimine
-	$notice = 0;
-	$email = 0;
-	$email_error = 0;
-	$password_error = 0;
-	if(isset($_POST["login_submit"])) {
-		// kontrollime, kas email ja password on olemas ja siin peaks tegema ka seda, et kas on korrektselt sisestatud.
-
-		$notice = sign_in($_POST["email_input"], $_POST["password_input"]);
-	}
-
-	// kolmandas tunnis lisatud
-	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
-	require_once "fnc_general.php";
-	require_once "fnc_user.php";*/
 
 	$pagetitle = "Õpime PHP-d";
 	$myname = "Juho Kalberg";
@@ -121,14 +93,14 @@
 	$randomphotofunc = array_rand($picfiles,3); 
 	//--------------------------------------KODUTÖÖ-ÜL-LÕPP----------------------------------------------// 
 
-	// 3 tunni lisandused
-	// sisselogimine
+	// 3 tunni lisandused sisselogimine
 	$notice = null;
 	$email = null;
 	$email_error = null;
 	$password_error = null;
-	if(isset($_POST["login_submit"])) {
+	if(isset($_POST["login_submit"])){
 		//kontrollime, kas email ja password on olemas
+		
 		$notice = sign_in($_POST["email_input"], $_POST["password_input"]);
 	}
 
@@ -158,10 +130,10 @@
 	<h4>Logi sisse</h4>
 	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		<label>E-mail (kasutajatunnus):</label><br>
-		<input type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
+		<input class="mb-2" type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
 		<label>Salasõna:</label><br>
-		<input name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
-		<input name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice; ?></span>
+		<input class="mb-2" name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
+		<input class="mb-2" name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice; ?></span>
 	</form>
 	<p> Loo endale <a href="add_user.php">kasutajakonto</a> </p>
 

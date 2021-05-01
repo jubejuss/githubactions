@@ -1,10 +1,9 @@
 <?php
 	//session_start();
 	require("classes/SessionManager.class.php");
-	//SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
-	SessionManager::sessionStart("vr", 0, "/", "localhost", false);
+	SessionManager::sessionStart("vr", 0, "/~andrus.rinde/", "tigu.hk.tlu.ee");
 	
-	include('../dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
+	require_once "../../../conf.php";
 	//require_once "fnc_general.php";
 	require_once "fnc_user.php";
 	

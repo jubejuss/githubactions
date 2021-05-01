@@ -1,6 +1,6 @@
 <?php
 	
-	include('../dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
+	require_once "../../../conf.php";
 	require_once "fnc_general.php";
 	
 	function read_news($news_limit){
