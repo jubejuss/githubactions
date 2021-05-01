@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark"> <!-- fixed-top  -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"> <!-- fixed-top  -->
     <a class="navbar-brand" href="page.php">PHP koolitööd</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -32,8 +32,13 @@
         </div>
       </li>
       </ul>
+      <?PHP 
+      if(!isset($_SESSION["user_id"])){ 
+        echo '<a class="d-flex align-items-center" href="page.php">Logi sisse<i class="fas fa-poo h2 ml-3"></i></a>';
+      } else {
+        echo '<a class="d-flex align-items-center" href="home.php?logout=1">logi välja<span class="h3 ml-3 mb-0">X</span><i class="fas fa-sign-out-alt h2 ml-3"></i></a>';
+      }
+      ?>
     </div>
   </nav>
   
-  
-
