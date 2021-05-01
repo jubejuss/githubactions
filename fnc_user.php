@@ -34,6 +34,7 @@
                 //olemegi sisseloginud
                 $notice = 1;
                 $_SESSION["user_id"] = $id_from_db;
+                $_SESSION["user_name"] = $first_name_from_db;
                 $stmt -> close();
                 $conn -> close();
                 header("Location: home.php");
@@ -46,3 +47,22 @@
         $conn -> close();
         return $notice;
     }
+
+    function verify_user($email){
+		echo $email;
+		$notice = 0;
+		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
+		$stmt = $conn -> prepare("SELECT vr21_users_id FROM vr21_users  WHERE vr21_users_email = ?");
+		
+		echo $conn -> error;
+		$stmt -> bind_param("s", $email);
+		$stmt -> execute();
+
+		if($stmt -> fetch()){
+			$notice = 1;
+		}
+		
+		$stmt -> close();
+		$conn -> close();
+		return $notice;
+	}

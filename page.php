@@ -1,12 +1,7 @@
 <?php
-	error_reporting(E_ALL);
-	ini_set('display_errors', TRUE);
-	ini_set('display_startup_errors', TRUE);
 	//session_start();
 	require("classes/SessionManager.class.php");
 	require_once("local_remote_variables.php");
-	//SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
-	//SessionManager::sessionStart("vr", 0, "/", "localhost", false);
 	
 	require_once "dbconf.php"; // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
 	//require_once "fnc_general.php";
@@ -107,6 +102,8 @@
 		
 		$notice = sign_in($_POST["email_input"], $_POST["password_input"]);
 	}
+	
+	$username = $_SESSION["user_name"]
 
 ?>
 <!DOCTYPE html>
@@ -137,15 +134,31 @@
 			</h2>
 			<h3>Kolmanda tunni lisandused</h3>
 
-			<h4>Logi sisse</h4>
-			<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-				<label>E-mail (kasutajatunnus):</label><br>
-				<input class="mb-2" type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
-				<label>Salasõna:</label><br>
-				<input class="mb-2" name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
-				<input class="mb-2" name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice; ?></span>
-			</form>
-			<p> Loo endale <a href="add_user.php">kasutajakonto</a> </p>
+			<h5>
+			<?php
+			echo "Tere tulemast, ".((isset($_SESSION["user_id"])) ? $username : "Külaline")."!";
+			?>
+			</h5>
+			<?PHP if(!isset($_SESSION["user_id"])): ?>
+
+				<h5>Logi sisse</h5>
+				<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					<label>E-mail (kasutajatunnus):</label><br>
+					<input type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
+					<label>Salasõna:</label><br>
+					<input name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
+					<input name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice; ?></span>
+				</form>
+				<p> Loo endale <a href="add_user.php">kasutajakonto</a> </p>
+
+			<?php else: ?>	
+
+				<p>Oled Sisse logitud</p>
+				<p><a href="home.php?logout=1">Logi välja</a></p>
+
+			<?php endif ?>
+
+				
 
 			<h3>Kodune ülesanne</h3>
 			<p>Kodune ülesanne on lahendatud nii keerulisemalt kui lihtsamalt.</p>

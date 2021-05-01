@@ -10,6 +10,8 @@
         header("Location: page.php");
     }*/
     require_once "usesession.php";
+    // tõmban andmebaasist kasutaja nime
+    $username = $_SESSION["user_name"]
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +30,12 @@
     </header>
     <main>
         <div class="container">
-            <h1>Sisse loginud kasutaja</h1>
+            <h1>Tere, <?php echo $username?>!</h1>
             <p>Palju õnne, oled sisseloginud!</p>
             <hr>
             <p><a href="?logout=1">Logi välja</a></p>
          </div>
+         
     </main>
 	<?php require("page_details/scripts.php") ?>
 </body>

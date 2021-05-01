@@ -1,14 +1,9 @@
 <?php
-	//järgmised kolm rida on lihtsalt errori raporteerimiseks
-	error_reporting(E_ALL);
-	ini_set('display_errors', TRUE);
-	ini_set('display_startup_errors', TRUE);
 
+	require_once "usesession.php";
 	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
 	// echo $server_host; // kui tahan testida, et kas on ühendus olemas.
 	$news_input_error = null;
-
-
 
 	// var_dump($_POST); // lihtsalt vaatan, mida sisestasin, on olemas $_get 
 	if(isset($_POST["news_submit"])) { 

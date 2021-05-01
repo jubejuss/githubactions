@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">PHP koolitööd</a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark"> <!-- fixed-top  -->
+    <a class="navbar-brand" href="page.php">PHP koolitööd</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,9 +21,19 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item text-dark" href="add_user.php">Lisa kasutaja</a>
           <a class="dropdown-item text-dark" href="add_news.php">Lisa uudis</a>
-          <a class="dropdown-item text-dark" href="#">Lae pilt üles</a>
+          <a class="dropdown-item text-dark" href="upload_photo.php">Lae pilt üles</a>
+          <a class="dropdown-item text-dark" 
+            <?PHP if(!isset($_SESSION["user_id"])): ?>
+              href="page.php">Logi sisse
+            <?php else: ?>
+              href="home.php?logout=1">Logi välja
+            <?php endif ?>
+          </a>
         </div>
       </li>
       </ul>
     </div>
   </nav>
+  
+  
+
