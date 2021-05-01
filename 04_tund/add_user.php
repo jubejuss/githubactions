@@ -1,12 +1,11 @@
 <?php
-
-	error_reporting(E_ALL);
+	/* error_reporting(E_ALL);
 	ini_set('display_errors', TRUE);
-	ini_set('display_startup_errors', TRUE);
+	ini_set('display_startup_errors', TRUE); */
 
-	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
-  require_once "fnc_general.php"; // see on mul olemas, see on eelmise tunni teema, vt järele
-  require_once "fnc_user.php";
+	include('../dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
+    require_once "../fnc_general.php"; // see on mul olemas, see on eelmise tunni teema, vt järele
+    require_once "fnc_user.php";
     
   $notice = null;
   $name = null;
@@ -74,7 +73,7 @@
 	// kuupäeva valiidsus ehk reaalsuse kontroll.  Kas selline kuupäev on kalendris olemas ka.
 	if(empty($birth_day_error) and empty($birth_month_error) and empty($birth_year_error)) {
 		if(checkdate($birth_month, $birth_day, $birth_year)) {
-			$temp_date = new DateTime($birth_year ."-" .$birth_month ."-" .$birth_day); // vaata videost kas saaks lihtsamalt
+			$temp_date = new DateTime($birth_year ."-" .$birth_month ."-" .$birth_day);
 			$birth_date = $temp_date->format("Y-m-d");
 		} else {
 			$birth_date_error = "Valitud kuupäev on vigane!";
@@ -105,15 +104,16 @@
 	if(empty($_POST["confirmpassword_input"])) {
 		$confirm_password_error = "Palun sisestage salasõna kaks korda!";
 	} else {
-		if($_POST["confirmpassword_input"] != $_POST["password_input"]) {
+		if($_POST["confirmpassword_input"] != $_POST["password_input"]) { // ehk kui ei võrdu need kaks sisestatud parameetrit
 			$confirm_password_error = "Sisestatud salasõnad ei ole ühesugused!";
 		}
 	}
 	
 	//kui vigu pole siis salvestame
-	if(empty($name_error) and empty($surname_error) and empty($birth_month_error) and empty($birth_year_error) and empty($birth_day_error) and empty($gender_error) and empty($email_error) and empty($password_error) and empty($confirm_password_error) and empty($birth_date_error)) {
+	if(empty($name_error) and empty($surname_error) and empty($birth_month_error) and empty($birth_year_error) and empty($birth_day_error) and empty($birth_date_error) and empty($gender_error) and empty($email_error) and empty($password_error) and empty($confirm_password_error)) {
 		// salvestus ehk kasutaja loomine
 		$notice = sign_up($name, $surname, $gender, $birth_date, $email, $_POST["password_input"]);
+        // allpool kontrollitakse fnc_user.php failist tulevat
 		if($notice == 1) {
 			$notice = "Uus kasutaja on edukalt loodud!";
 		} else {
@@ -205,7 +205,7 @@
 	  <input name="user_data_submit" type="submit" value="Loo kasutaja"><span><?php echo $notice; ?></span>
 	</form>
 	<hr>
-	<p>Tagasi <a href="tund_03_sainsisse.php">avalehele</a></p>
+	<p>Tagasi <a href="page.php">avalehele</a></p>
     <hr>
   </body>
 </html>

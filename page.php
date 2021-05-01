@@ -1,6 +1,14 @@
 <?php
+	//session_start();
+	require("classes/SessionManager.class.php");
+	//SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
+	SessionManager::sessionStart("vr", 0, "/", "localhost", false);
+	
+	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
+	//require_once "fnc_general.php";
+	require_once "fnc_user.php";
 
-	error_reporting(E_ALL);
+	/* error_reporting(E_ALL);
 	ini_set('display_errors', TRUE);
 	ini_set('display_startup_errors', TRUE);
 
@@ -26,7 +34,7 @@
 	// kolmandas tunnis lisatud
 	include('dbconf.php'); // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
 	require_once "fnc_general.php";
-	require_once "fnc_user.php";
+	require_once "fnc_user.php";*/
 
 	$pagetitle = "Õpime PHP-d";
 	$myname = "Juho Kalberg";
@@ -155,7 +163,7 @@
 		<input name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
 		<input name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice; ?></span>
 	</form>
-	<p> Loo endale <a href="tund_03_add_user.php">kasutajakonto</a> </p>
+	<p> Loo endale <a href="add_user.php">kasutajakonto</a> </p>
 
 	<h3>Kodune ülesanne</h3>
 	<p>Kodune ülesanne on lahendatud nii keerulisemalt kui lihtsamalt.</p>
