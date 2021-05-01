@@ -132,16 +132,15 @@
 				echo $myname;
 			?>
 			</h2>
-			<h3>Kolmanda tunni lisandused</h3>
 
-			<h5>
+			<div class="h5">
 			<?php
 			echo "Tere tulemast, ".((isset($_SESSION["user_id"])) ? $username : "Külaline")."!";
 			?>
-			</h5>
+			</div>
 			<?PHP if(!isset($_SESSION["user_id"])): ?>
 
-				<h5>Logi sisse</h5>
+				<div class="h5">Logi sisse</div>
 				<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 					<label>E-mail (kasutajatunnus):</label><br>
 					<input type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
@@ -149,7 +148,7 @@
 					<input name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
 					<input name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice; ?></span>
 				</form>
-				<p> Loo endale <a href="add_user.php">kasutajakonto</a> </p>
+				<p class="h5"> Aga kui sul pole, siis loo endale <a href="add_user.php">kasutajakonto siin!</a> </p>
 
 			<?php else: ?>	
 

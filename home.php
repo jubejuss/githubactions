@@ -33,7 +33,7 @@
             <h1>Tere, <?php echo $username?>!</h1>
             <p>Palju õnne, oled sisseloginud!</p>
             <hr>
-            <p><a href="?logout=1">Logi välja</a></p>
+            <p><a href="page.php">Vaata nüüd ringi klikates SIIN </a>või <a href="?logout=1">logi välja klikates SIIN</a></p>
          </div>
          
     </main>
