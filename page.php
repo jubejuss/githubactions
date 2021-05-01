@@ -1,4 +1,7 @@
 <?php
+	error_reporting(E_ALL);
+	ini_set('display_errors', TRUE);
+	ini_set('display_startup_errors', TRUE);
 	//session_start();
 	require("classes/SessionManager.class.php");
 	SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
