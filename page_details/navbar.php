@@ -36,7 +36,7 @@
       if(!isset($_SESSION["user_id"])){ 
         echo '<a class="d-flex align-items-center" href="page.php">Logi sisse<i class="fas fa-poo h2 ml-3"></i></a>';
       } else {
-        echo '<a class="d-flex align-items-center" href="home.php?logout=1">logi välja<span class="h3 ml-3 mb-0">X</span><i class="fas fa-sign-out-alt h2 ml-3"></i></a>';
+        echo '<a class="d-flex align-items-center" href="home.php?logout=1">logi välja<i class="fas fa-sign-out-alt h2 ml-3"></i></a>';
       }
       ?>
     </div>
