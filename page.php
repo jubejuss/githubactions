@@ -97,14 +97,16 @@
 	$email = null;
 	$email_error = null;
 	$password_error = null;
-	if(isset($_POST["login_submit"])){
+
+	if(isset($_POST["login_submit"])) {
 		//kontrollime, kas email ja password on olemas
 		
 		$notice = sign_in($_POST["email_input"], $_POST["password_input"]);
 	}
-	if(isset($_SESSION["user_id"])){
+
+	if(isset($_SESSION["user_id"])) {
         $username = $_SESSION["user_name"];
-      }
+    }
 
 ?>
 <!DOCTYPE html>
@@ -145,10 +147,10 @@
 				<div class="h5">Logi sisse</div>
 				<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 					<label>E-mail (kasutajatunnus):</label><br>
-					<input type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
+					<input type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br><br>
 					<label>Salasõna:</label><br>
-					<input name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
-					<input name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice == 0 ? "" : ($notice == 1 ? "Vale parool!" : "Sellist kasutajanime pole süsteemis!"); ?></span>
+					<input type="password" name="password_input"><span><?php echo $password_error; ?></span><br><br>
+					<input type="submit" name="login_submit" value="Logi sisse"><span><?php echo $notice == 0 ? "" : ($notice == 1 ? "Vale salasõna!" : "Sellist kasutajanime pole!"); ?></span>
 				</form>
 				<p class="h5"> Aga kui sul pole, siis loo endale <a href="add_user.php">kasutajakonto siin!</a> </p>
 
