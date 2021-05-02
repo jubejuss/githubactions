@@ -102,7 +102,9 @@
 		
 		$notice = sign_in($_POST["email_input"], $_POST["password_input"]);
 	}
-	$username = $_SESSION["user_name"]
+	if(isset($_SESSION["user_id"])){
+        $username = $_SESSION["user_name"];
+      }
 
 ?>
 <!DOCTYPE html>

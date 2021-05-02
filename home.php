@@ -11,7 +11,11 @@
     }*/
     require_once "usesession.php";
     // tõmban andmebaasist kasutaja nime
-    $username = $_SESSION["user_name"]
+    
+    if(isset($_SESSION["user_id"])){
+        $username = $_SESSION["user_name"];
+      }
+
 ?>
 
 <!DOCTYPE html>
