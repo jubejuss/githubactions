@@ -147,9 +147,9 @@
 				<div class="h5">Logi sisse</div>
 				<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 					<label>E-mail (kasutajatunnus):</label><br>
-					<input type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br><br>
+					<input type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
 					<label>Salasõna:</label><br>
-					<input type="password" name="password_input"><span><?php echo $password_error; ?></span><br><br>
+					<input type="password" name="password_input"><span><?php echo $password_error; ?></span><br>
 					<input type="submit" name="login_submit" value="Logi sisse"><span><?php echo $notice == 0 ? "" : ($notice == 1 ? "Vale salasõna!" : "Sellist kasutajanime pole!"); ?></span>
 				</form>
 				<p class="h5"> Aga kui sul pole, siis loo endale <a href="add_user.php">kasutajakonto siin!</a> </p>
