@@ -93,6 +93,14 @@ Seejärel juba:
 Git clone  
 npm install
 
+Eraldi tuleb seadistada või lisada `dbconf.php`, kus näidatakse ära, kus asub `conf.php`, milles on andmebaasi ligipääsud.
+nt:
+
+```php
+<?php
+require_once ("conf.php");
+```
+
 ## Kasutusel oleval muutujad
 
 $stmt – statement
