@@ -98,7 +98,32 @@ nt:
 
 ```php
 <?php
-require_once ("conf.php");
+require_once ("../../conf.php");
+```
+
+conf.php ise nt:
+
+```php
+<?php
+	$server_user_name = "root";
+	$server_password = "root";
+	$server_host = "db:3306";
+	$database = "juhokalberg";
+```
+
+Samuti tuleb lisada fail `local_remote_variables.php`milles näidatakse sessiooni jaoks vajalikud parameetrid.  
+Nt tiguserveris:
+
+```php
+<?php
+    SessionManager::sessionStart("vr", 0, "/~juho.kalberg/", "tigu.hk.tlu.ee");
+```
+
+ja lokaalses masinas:
+
+```php
+<?php
+    SessionManager::sessionStart("vr", 0, "/", "127.0.0.1", false);
 ```
 
 ## Kasutusel oleval muutujad
