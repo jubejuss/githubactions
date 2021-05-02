@@ -148,7 +148,7 @@
 					<input type="email" name="email_input" value="<?php echo $email; ?>"><span><?php echo $email_error; ?></span><br>
 					<label>Salasõna:</label><br>
 					<input name="password_input" type="password"><span><?php echo $password_error; ?></span><br>
-					<input name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice; ?></span>
+					<input name="login_submit" type="submit" value="Logi sisse!"><span><?php echo $notice == 0 ? "" : ($notice == 1 ? "Vale parool!" : "Sellist kasutajanime pole süsteemis!"); ?></span>
 				</form>
 				<p class="h5"> Aga kui sul pole, siis loo endale <a href="add_user.php">kasutajakonto siin!</a> </p>
 
