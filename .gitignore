@@ -1,4 +1,7 @@
 node_modules
 local_remote_variables.php
+local_remote_photo_variables.php
 conf.php
 dbconf.php
+upload_photos_normal
+upload_photos_orig

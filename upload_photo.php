@@ -2,6 +2,7 @@
 	require_once "usesession.php";
 	require_once "dbconf.php"; // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
 	require_once "fnc_general.php";
+	require_once "local_remote_photo_variables.php";
 	
 	$photo_upload_error = null;
 	$image_file_type = null;
@@ -65,7 +66,8 @@
 				$new_temp_image = imagecreatetruecolor($image_new_w, $image_new_h);
 				imagecopyresampled($new_temp_image, $temp_image, 0, 0, 0, 0, $image_new_w, $image_new_h, $image_w, $image_h);
 				//salvestame pikslikogumi faili
-				$target_file = "../upload_photos_normal/" .$image_file_name;
+				//järgmises reas on muutuja, mis on defineeritud eraldi failis local_remote_photo_variables.php
+				$target_file = $target_file_path_n .$image_file_name; 
 				if($image_file_type == "jpg") {
 					if(imagejpeg($new_temp_image, $target_file, 90)){
 						$photo_upload_error = "Vähendatud pilt on salvestatud!";
@@ -84,7 +86,8 @@
 
 
 				//$target_file = "../upload_photos_orig/" .$_FILES["file_input"]["name"]; //näitan ära, kus me juurikast väljaspool pilte hakkame hoidma ja mis on faili nimi
-				$target_file = "../upload_photos_orig/" .$image_file_name;
+				//järgmises reas on muutuja, mis on defineeritud eraldi failis local_remote_photo_variables.php
+				$target_file = $target_file_path_o .$image_file_name;
 				//if(file_exists($target_file))
 				if(move_uploaded_file($_FILES["file_input"]["tmp_name"], $target_file)){
 					$photo_upload_error .= "Foto üleslaadimine õnnestus!";
