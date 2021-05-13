@@ -161,7 +161,7 @@
 				<br>
 				<input type="submit" name="photo_submit" value="Lae pilt üles">
 			</form>
-			<p><?php echo $photo_upload_error; ?></p>
+			<p><?php echo $photo_upload_error; echo $photo_upload_succeeded; ?></p>
 		</date>
 	</main>
 	<?php require("page_details/scripts.php") ?>
