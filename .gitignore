@@ -5,3 +5,4 @@ conf.php
 dbconf.php
 upload_photos_normal
 upload_photos_orig
+upload_photos_thumbs
