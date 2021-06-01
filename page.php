@@ -1,11 +1,18 @@
 <?php
 	//session_start();
-	require("classes/SessionManager.class.php");
-	require_once("local_remote_variables.php");
+	require "classes/SessionManager.class.php";
+	require_once "local_remote_variables.php";
 	
 	require_once "dbconf.php"; // sellega lisame siia dbconf.php faili, kus on kirjas andmebaasi andmed
 	//require_once "fnc_general.php";
 	require_once "fnc_user.php";
+
+	//klassi näide
+	require_once "classes/Test.class.php";
+	$test_object = new Test(5);
+	echo "Avalik number on " .$test_object->non_secret; //näita classi seest secretit
+	$test_object->reveal();
+	unset($test_object);
 
 	$pagetitle = "Õpime PHP-d";
 	$myname = "Juho Kalberg";
