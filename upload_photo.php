@@ -31,7 +31,7 @@
 			
 			//salvestame pikslikgumi faili
 			$image_file_name = $photo_upload->filename();
-			$target_file = "upload_photos_normal/" .$image_file_name;
+			$target_file = "../upload_photos_normal/" .$image_file_name;
 			$result = $photo_upload->save_image_to_file($target_file, false);
 			if($result == 1) {
 				$notice = "Vähendatud pilt laeti üles! ";
@@ -43,7 +43,7 @@
 			$photo_upload->resize_photo($image_thumbnail_size, $image_thumbnail_size, false);
 			
 			//salvestame pisipildi faili
-			$target_file = "upload_photos_thumbs/" .$image_file_name;
+			$target_file = "../upload_photos_thumbs/" .$image_file_name;
 			$result = $photo_upload->save_image_to_file($target_file, false);
 			if($result == 1) {
 				$notice .= " Pisipilt laeti üles! ";
@@ -51,7 +51,7 @@
 				$photo_upload_error .= " Pisipildi salvestamisel tekkis viga!";
 			}
 
-			$target_file = "upload_photos_orig/" .$image_file_name;
+			$target_file = "../upload_photos_orig/" .$image_file_name;
 				//if(file_exists($target_file))
 				if(move_uploaded_file($_FILES["file_input"]["tmp_name"], $target_file)){
 					$notice .= " Originaalfoto üleslaadimine õnnestus!";
