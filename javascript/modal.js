@@ -19,6 +19,8 @@ window.onload = function () {
 
 function openModal(e) {
     modalImg.src = photoDir + e.target.dataset.fn; //see fn oli meil endal html-i pandud, nüüd siin kasutan
+    captionText.innerHTML = e.target.alt;
+    modal.style.display = "block";
 }
 
 function closeModal() {
