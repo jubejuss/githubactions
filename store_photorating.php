@@ -13,7 +13,7 @@
     $stmt->close();
 
     //loeme keskmise hinde
-    $stmt = $conn->prepare("SELECT AVG(vr21_photoratings_rating) as avgValue FROM vr21_photoratings_rating WHERE vr21_photoratings_photoid = ?");
+    $stmt = $conn->prepare("SELECT AVG(vr21_photoratings_rating) as avgValue FROM vr21_photoratings WHERE vr21_photoratings_photoid = ?");
     echo $conn->error;
     $stmt->bind_param("i", $id);
     $stmt->bind_result($score);
