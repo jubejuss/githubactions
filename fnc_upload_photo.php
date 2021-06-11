@@ -98,5 +98,6 @@ function gallery() {
 	$stmt -> close();
 	$conn -> close();
 	return $photos;
+	
 
 }
