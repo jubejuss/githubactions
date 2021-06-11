@@ -11,7 +11,8 @@ window.onload = function () {
     captionText = document.getElementById("modalcaption");
     //lisame kõigile thumbidele kliki kuualaja
     let allThumbs = document.getElementById("gallery").getElementsByTagName("img");
-    let i = 0; i < allThumbs.length; i++) {
+    let(i = 0; i < allThumbs.length; i++) {
         allThumbs[i].addEventListener("click", openModal);
     }
+
 }
