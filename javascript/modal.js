@@ -14,5 +14,13 @@ window.onload = function () {
     let(i = 0; i < allThumbs.length; i++) {
         allThumbs[i].addEventListener("click", openModal);
     }
+    document.getElementsById("modalclose").addEventListener("click", closeModal);
+}
+
+function openModal(e) {
+    modalImg.src = photoDir + e.target.dataset.fn; //see fn oli meil endal html-i pandud, nüüd siin kasutan
+}
+
+function closeModal() {
 
 }
