@@ -79,63 +79,60 @@
 
 
 
-								<!DOCTYPE html>
-								<html lang="et">
-								<head>
-									<meta charset="UTF-8">
-									<meta http-equiv="X-UA-Compatible" content="IE=edge">
-									<meta name="viewport" content="width=device-width, initial-scale=1.0">
-									<link rel="stylesheet" href="assets/css/starter.css">
-									<link rel="stylesheet" href="assets/css/styles.css">
-									<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-									<title>PHP õppeleht</title>
-<!-- defer pidurdab javascripti kohest käivitamist -->
-<script src="javascript/checkImageSize.js" defer></script>
-								</head>
-								<body class="bg-gradient-secondary text-bright">
-									<header>
-										<?php include("page_details/navbar.php"); ?>
-									</header>
-									<main>
-										<div class="container bg-gradient-secondary text-bright">
-											
-											
-										<h1>Fotode üleslaadimine</h1>
-									<hr>
-									<p><a href="home.php">Avalehele</a></p>
-									<hr>
-									<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
-										<label for="file_input">Vali foto fail! </label>
-										<input id="file_input" name="file_input" type="file">
-										<br>
-										<label for="alt_input">Alternatiivtekst ehk pildi selgitus</label>
-										<input id="alt_input" name="alt_input" type="text" placeholder="Pildil on ...">
-										<br>
-										<label>Privaatsustase: </label>
-										<br>
-										<input id="privacy_input_1" name="privacy_input" type="radio" value="3" checked>
-										<label for="privacy_input_1">Privaatne</label>
-										<br>
-										<input id="privacy_input_2" name="privacy_input" type="radio" value="2">
-										<label for="privacy_input_2">Registreeritud kasutajatele</label>
-										<br>
-										<input id="privacy_input_3" name="privacy_input" type="radio" value="1">
-										<label for="privacy_input_3">Avalik</label>
-										<br>
-		<!-- name on vajalik PHP-le, ID on vajalik javascriptile -->
-		<input type="submit" id="photo_submit" name="photo_submit" value="Lae pilt üles!">
-									</form>
-									<p><?php echo $photo_upload_error; echo $notice; ?></p>
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/starter.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>PHP õppeleht</title>
+</head>
+<body class="bg-gradient-secondary text-bright">
+    <header>
+        <?php include("page_details/navbar.php"); ?>
+    </header>
+    <main>
+        <div class="container bg-gradient-secondary text-bright">
+			
+			
+		<h1>Fotode üleslaadimine</h1>
+	<hr>
+	<p><a href="home.php">Avalehele</a></p>
+	<hr>
+	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+		<label for="file_input">Vali foto fail! </label>
+		<input id="file_input" name="file_input" type="file">
+		<br>
+		<label for="alt_input">Alternatiivtekst ehk pildi selgitus</label>
+		<input id="alt_input" name="alt_input" type="text" placeholder="Pildil on ...">
+		<br>
+		<label>Privaatsustase: </label>
+		<br>
+		<input id="privacy_input_1" name="privacy_input" type="radio" value="3" checked>
+		<label for="privacy_input_1">Privaatne</label>
+		<br>
+		<input id="privacy_input_2" name="privacy_input" type="radio" value="2">
+		<label for="privacy_input_2">Registreeritud kasutajatele</label>
+		<br>
+		<input id="privacy_input_3" name="privacy_input" type="radio" value="1">
+		<label for="privacy_input_3">Avalik</label>
+		<br>
+		<input type="submit" name="photo_submit" value="Lae pilt üles!">
+	</form>
+	<p><?php echo $photo_upload_error; echo $notice; ?></p>
 
 
 
 
-					
-							<a href="./">Aine kodulehele</a>
-							<p>Juhhei</p>
-						</div>
-					</div>
-				</main>
-				<?php require("page_details/scripts.php") ?>
-			</body>
-			</html>
+		
+				<a href="./">Aine kodulehele</a>
+				<p>Juhhei</p>
+			</div>
+        </div>
+    </main>
+	<?php require("page_details/scripts.php") ?>
+</body>
+</html>
