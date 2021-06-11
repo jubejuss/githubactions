@@ -14,7 +14,7 @@ window.onload = function () {
     for (let i = 0; i < allThumbs.length; i++) {
         allThumbs[i].addEventListener("click", openModal);
     }
-    document.getElementsById("modalclose").addEventListener("click", closeModal);
+    document.getElementById("modalclose").addEventListener("click", closeModal);
 }
 
 function openModal(e) {
