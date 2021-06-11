@@ -12,6 +12,7 @@
 	<title>Veebirakendused ja nende loomine 2021 | Galerii</title>
 	<link rel="stylesheet" href="assets/css/starter.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
+	<script src="javascript/modal.js" defer></script>
 </head>
 <body class="bg-gradient-secondary text-bright">
 <!-- modali lisamine -->
