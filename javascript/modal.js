@@ -53,7 +53,7 @@ function storeRating() {
                     document.getElementById("avgRating").innerHTML = "Keskmine hinne: " + this.responseText;
                 }
             }
-            webRequest.open("GET", "store_photorating.php?rating=" + rating + "&photoid" + photoId, true);
+            webRequest.open("GET", "store_photorating.php?rating=" + rating + "&photoid=" + photoId, true);
             webRequest.send();
             //AJAX lõppeb
         }
