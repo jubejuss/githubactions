@@ -91,7 +91,7 @@ function gallery() {
 	$photos = null;
 	while ($stmt -> fetch()) {
 		$photos .= '<div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">';
-		$photos .= '<img src="../upload_photos_thumbs/' .$photos_filename .'" alt="' .$photos_alttext .'" class="thumb rounded" data-fn="pildifaili_nimi" data-id="pildi_id">';
+		$photos .= '<img src="../upload_photos_thumbs/' .$photos_filename .'" alt="' .$photos_alttext .'" class="thumb rounded" data-fn="' . $photos_filename .'"  data-id="'. $photos_id.'">';
 		$photos .= '<p class="mt-2 font-italic">'. "Autor: " . $users_firstname ." " .$users_lastname .'</p></div>';
 
 	}
