@@ -6,7 +6,7 @@
 	require_once "dbconf.php";
 
     $conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
-    $stmt = $conn->prepare("INSERT INTO vr21_photoratings (vr21_photoratings_photoid, vr21_photoratings_userid, vr21_photoratings_rating) VALUES(?,?,?)";
+    $stmt = $conn->prepare("INSERT INTO vr21_photoratings (vr21_photoratings_photoid, vr21_photoratings_userid, vr21_photoratings_rating) VALUES(?,?,?)");
     echo $conn->error;
     $stmt->bind_param("iii", $id, $_SESSION["user_id"], $rating);
     $stmt->execute();
