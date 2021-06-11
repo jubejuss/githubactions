@@ -48,11 +48,13 @@ function storeRating() {
             let webRequest = new XMLHttpRequest();
             webRequest.onreadystatechange = function () {
                 //kas õnnestus
-                if (this.readyState == 4 && this.status == 200) {
+                if (this.readyState == 4 && this.status == 200) { //4 tähendab, et päring on töödeldud. HTTPrequest ja state, sealt need numbrid
                     //mida teeme kui õnnestus
                     document.getElementById("avgRating").innerHTML = "Keskmine hinne: " + this.responseText;
                 }
             }
+            webRequest.open("GET", "store_photorating.php?rating=" + rating + "&photoid" + photoId, true);
+            webRequest.send();
             //AJAX lõppeb
         }
     }
