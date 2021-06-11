@@ -42,7 +42,7 @@
     <main>
         <div class="container bg-gradient-secondary text-bright">
 		<h1>Galerii</h1>
-			<div class="row">
+			<div id="gallery" class="row">
 					<?php echo gallery(); ?>
 			</div>
 		</div>
