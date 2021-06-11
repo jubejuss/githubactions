@@ -6,5 +6,9 @@ window.onload = function () {
 }
 
 function checkSize() {
-
+    if (document.getElementById("file_input").files[0].size <= fileSizeLimit) {
+        document.getElementById("Photo_submit").disabled = false;
+    } else {
+        document.getElementById("Photo_submit").disabled = true;
+    }
 }
