@@ -18,7 +18,7 @@
     $stmt->bind_param("i", $id);
     $stmt->bind_result($score);
     $stmt->execute();
-    $stmt->fetch;
+    $stmt->fetch();
     $stmt->close();
     $conn->close();
     echo round($score, 2);
