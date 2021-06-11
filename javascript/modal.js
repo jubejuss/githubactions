@@ -24,5 +24,6 @@ function openModal(e) {
 }
 
 function closeModal() {
-
+    modal.style.display = "none";
+    modalImg.src = "images/empty.png";
 }
