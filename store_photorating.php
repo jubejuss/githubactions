@@ -16,7 +16,7 @@
     $stmt = $conn->prepare("SELECT AVG(vr21_photoratings_rating) as avgValue FROM vr21_photoratings_rating WHERE vr21_photoratings_photoid = ?");
     echo $conn->error;
     $stmt->bind_param("i", $id);
-    $stmt->bind_result($score)
+    $stmt->bind_result($score);
     $stmt->execute();
     $stmt->fetch;
     $stmt->close();
