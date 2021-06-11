@@ -125,7 +125,7 @@
 		<!-- name on vajalik PHP-le, ID on vajalik javascriptile -->
 		<input type="submit" id="photo_submit" name="photo_submit" value="Lae pilt üles!">
 									</form>
-									<p><?php echo $photo_upload_error; echo $notice; ?></p>
+		<p id="notice"><?php echo $photo_upload_error; echo $notice; ?></p>
 
 
 
