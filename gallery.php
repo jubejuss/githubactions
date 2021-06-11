@@ -14,6 +14,27 @@
 	<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="bg-gradient-secondary text-bright">
+<!-- modali lisamine -->
+  <!--Modaalaken fotogalerii jaoks-->
+  <div id="modalarea" class="modalarea">
+	<!--sulgemisnupp-->
+	<span id="modalclose" class="modalclose">&times;</span>
+	<!--pildikoht-->
+	<div class="modalhorizontal">
+		<div class="modalvertical">
+			<p id="modalcaption"></p>
+			<img id="modalimg" src="images/empty.png" alt="galeriipilt">
+
+			
+		</div>
+	</div>
+  </div>
+  <!-- modali lõpp -->
+
+
+
+
+
     <header>
         <?php include("page_details/navbar.php"); ?>
     </header>
