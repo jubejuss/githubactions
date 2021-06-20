@@ -1,5 +1,4 @@
 <?php
-	require_once "usesession.php";
 	require_once "dbconf.php";
 
 	function read_news(){
@@ -16,11 +15,20 @@
 		// $conn = set_charset("utf-8");
 		// valmistan ette SQL käsu
 		// kodutöö
-		$stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author, vr21_news_added FROM vr21_news ORDER BY vr21_news_id DESC LIMIT ?");
+		// $stmt = $conn -> prepare("SELECT vr21_news_title, vr21_news_content, vr21_news_author, vr21_news_added, vr21_news_photo FROM vr21_news ORDER BY vr21_news_id DESC LIMIT ?");
+		
+
+		$stmt = $conn -> prepare("SELECT vr21_news.vr21_news_title, vr21_news.vr21_news_content, vr21_news.vr21_news_author, vr21_news.vr21_news_added, vr21_news_photos.vr21_news_photos_filename, vr21_news_photos.vr21_news_photos_filename
+		FROM vr21_news LEFT OUTER JOIN
+			vr21_news_photos ON vr21_news.vr21_news_photo = vr21_news_photos.vr21_news_photos_id
+		ORDER BY vr21_news.vr21_news_id 
+		DESC LIMIT ?;");
+
+
 		echo $conn -> error;
 
 		
-		$stmt -> bind_result($news_title_from_db, $news_content_from_db, $news_author_from_db, $news_date_from_db);
+		$stmt -> bind_result($news_title_from_db, $news_content_from_db, $news_author_from_db, $news_date_from_db, $news_photo_from_db, $photos_alttext);
 		$stmt -> bind_param("s", $newsCount); // siin on sisend uudiste käsule
 		$stmt -> execute();
 		$raw_news_html = null;
@@ -29,6 +37,7 @@
 		$newsDate = $newsDate->format('d.m.Y'); // Teisendame dateTime objekti eestikeelele sobivaks
 
 		while ($stmt -> fetch()) {
+			$raw_news_html .= "\n <p>" .('<img src="upload_news_photos_normal/' .$news_photo_from_db .'" alt="' .$photos_alttext .'" class="thumb rounded" >') ."</p>";
 			$raw_news_html .= "\n <h2>" .$news_title_from_db ."</h2>";
 			$raw_news_html .= "\n <p>Lisatud: " .$newsDate ."</p>"; // kuupäev (kodutöö)
 			$raw_news_html .= "\n <p>" .nl2br($news_content_from_db) ."</p>";

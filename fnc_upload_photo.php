@@ -80,22 +80,39 @@
 							return $notice;
 						}
 
-	function store_news_photo_data($image_file_name, $alt, $orig_name){
-		$notice = null;
-		$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
-		$stmt = $conn->prepare("INSERT INTO vr21_photos (vr21_photos_userid, vr21_photos_filename, vr21_photos_alttext, vr21_photos_origname) VALUES (?, ?, ?, ?)");
-		echo $conn->error;
-		$stmt->bind_param("issis", $_SESSION["user_id"], $image_file_name, $alt, $orig_name);
-		if($stmt->execute()){
-			$notice = 1;
-		} else {
-			$notice = $stmt->error;
-		}
-		
-		$stmt->close();
-		$conn->close();
-		return $notice;
+function store_news_photo_data($image_file_name, $alt, $orig_name){
+	$notice = null;
+	$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
+	$stmt = $conn->prepare("INSERT INTO vr21_news_photos (vr21_news_photos_userid, vr21_news_photos_filename, vr21_news_photos_alttext, vr21_news_photos_origname) VALUES (?, ?, ?, ?)");
+	echo $conn->error;
+	$stmt->bind_param("isss", $_SESSION["user_id"], $image_file_name, $alt, $orig_name);
+	if($stmt->execute()){
+		$notice = 1;
+	} else {
+		$notice = $stmt->error;
 	}
+	$photo_id = $conn->insert_id;
+	$stmt->close();
+	$conn->close();
+	return array($notice, $photo_id);
+}
+
+function update_news_photo_data($image_file_name, $alt, $orig_name){
+	$notice = null;
+	$conn = new mysqli($GLOBALS["server_host"], $GLOBALS["server_user_name"], $GLOBALS["server_password"], $GLOBALS["database"]);
+	$stmt = $conn->prepare("UPDATE vr21_news_photos (vr21_news_photos_userid, vr21_news_photos_filename, vr21_news_photos_alttext, vr21_news_photos_origname) VALUES (?, ?, ?, ?)");
+	echo $conn->error;
+	$stmt->bind_param("isss", $_SESSION["user_id"], $image_file_name, $alt, $orig_name);
+	if($stmt->execute()){
+		$notice = 1;
+	} else {
+		$notice = $stmt->error;
+	}
+	$photo_id = $conn->insert_id;
+	$stmt->close();
+	$conn->close();
+	return array($notice, $photo_id);
+}
 
 						function gallery() {
 							$privacy = 2;
@@ -115,6 +132,4 @@
 							$stmt -> close();
 							$conn -> close();
 							return $photos;
-							
-
 						}

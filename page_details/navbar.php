@@ -20,7 +20,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item text-dark" href="add_user.php">Lisa kasutaja</a>
-          <a class="dropdown-item text-dark" href="add_news.php">Lisa uudis</a>
+          <a class="dropdown-item text-dark" href="add_news_photo.php">Lisa uudis</a>
+          <a class="dropdown-item text-dark" href="show_news_edit.php">Muuda uudist</a>
           <a class="dropdown-item text-dark" href="upload_photo.php">Lae pilt üles</a>
           <a class="dropdown-item text-dark" 
             <?PHP if(!isset($_SESSION["user_id"])): ?>
